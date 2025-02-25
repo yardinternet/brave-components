@@ -1,4 +1,4 @@
-# brave-components
+# Brave components
 
 [![Code Style](https://github.com/yardinternet/brave-components/actions/workflows/format-php.yml/badge.svg?no-cache)](https://github.com/yardinternet/brave-components/actions/workflows/format-php.yml)
 [![PHPStan](https://github.com/yardinternet/brave-components/actions/workflows/phpstan.yml/badge.svg?no-cache)](https://github.com/yardinternet/brave-components/actions/workflows/phpstan.yml)
@@ -13,7 +13,19 @@
 
 ## Components
 
-- [Footer Pattern Content](resources/views/components/footer-pattern-content.blade.php)
+Collection of logic-heavy components used in Brave projects.
+
+### Footer Pattern Content
+
+Create a pattern with the name/slug 'footer' in the WordPress admin and add content to it. This component displays the content of that pattern.
+
+Useage:
+
+```blade
+<x-brave-footer-pattern-content />
+```
+
+The `FooterPatternContent` hook manages the footer block pattern by automatically setting it as a draft, preventing its deletion, and adding a custom 'Vergrendeld' label in the post list. This ensures the 'footer' pattern remains intact and unmodifiable.
 
 ## Installation
 
@@ -50,18 +62,4 @@ To only publish the views, run:
 
 ```shell
 wp acorn vendor:publish --provider="Yard\Brave\ComponentsServiceProvider" --tag="views"
-```
-
-## Usage
-
-From a Blade template:
-
-```blade
-<x-brave::footer-pattern-content />
-```
-
-From WP-CLI:
-
-```shell
-wp acorn components
 ```
