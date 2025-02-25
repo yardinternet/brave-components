@@ -15,14 +15,15 @@
 
 Collection of logic-heavy components used in Brave projects.
 
-### Footer Pattern Content
+### Pattern Content
 
-Create a pattern with the name/slug 'footer' in the WordPress admin and add content to it. This component displays the content of that pattern.
+Create a pattern in the WordPress admin and add content to it. This component displays the content of that pattern.
 
 Useage:
 
 ```blade
-<x-brave-footer-pattern-content />
+<x-brave-pattern-content slug="footer" />
+<x-brave-pattern-content slug="header" />
 ```
 
 The `FooterPatternContent` hook manages the footer block pattern by automatically setting it as a draft, preventing its deletion, and adding a custom 'Vergrendeld' label in the post list. This ensures the 'footer' pattern remains intact and unmodifiable.

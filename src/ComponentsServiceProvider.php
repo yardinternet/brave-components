@@ -7,7 +7,7 @@ namespace Yard\Brave;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Hook\Registrar;
-use Yard\Brave\Components\FooterPatternContent;
+use Yard\Brave\Components\PatternContent;
 
 class ComponentsServiceProvider extends PackageServiceProvider
 {
@@ -17,7 +17,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponent('brave', FooterPatternContent::class);
+			->hasViewComponent('brave', PatternContent::class);
 	}
 
 	/**
@@ -27,8 +27,8 @@ class ComponentsServiceProvider extends PackageServiceProvider
 	{
 		$hooks = [];
 
-		if (config('components.hooks.footer_pattern_content')) {
-			$hooks[] = Hooks\FooterPatternContent::class;
+		if (config('components.hooks.enabled', true)) {
+			$hooks[] = Hooks\PatternContent::class;
 		}
 
 		(new Registrar($hooks))->registerHooks();
