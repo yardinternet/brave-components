@@ -27,7 +27,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 	{
 		$hooks = [];
 
-		if (config('components.hooks.enabled', true)) {
+		if (config('components.hooks.pattern_content.enabled', true)) {
 			$hooks[] = Hooks\PatternContent::class;
 		}
 
