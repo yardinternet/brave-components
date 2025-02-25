@@ -1,7 +1,7 @@
 <?php
 
-declare(strict_types=1);
-
 return [
-	// Empty for now
+    'hooks' => [
+        'footer_pattern_content' => true,
+    ],
 ];

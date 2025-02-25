@@ -25,8 +25,12 @@ class ComponentsServiceProvider extends PackageServiceProvider
 	 */
 	public function packageBooted(): void
 	{
-		(new Registrar([
-			Hooks\FooterPatternContent::class,
-		]))->registerHooks();
+		$hooks = [];
+
+		if (config('components.hooks.footer_pattern_content')) {
+			$hooks[] = Hooks\FooterPatternContent::class;
+		}
+
+		(new Registrar($hooks))->registerHooks();
 	}
 }
