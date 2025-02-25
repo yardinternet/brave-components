@@ -14,7 +14,7 @@ class PatternContent
 
     public function __construct()
     {
-        $this->patterns = config('components.hooks.patterns', []);
+        $this->patterns = config('components.hooks.pattern_content.patterns', []);
     }
 
     /**
