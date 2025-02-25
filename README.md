@@ -6,27 +6,12 @@
 [![Code Coverage Badge](https://github.com/yardinternet/brave-components/blob/badges/coverage.svg)](https://github.com/yardinternet/brave-components/actions/workflows/badges.yml)
 [![Lines of Code Badge](https://github.com/yardinternet/brave-components/blob/badges/lines-of-code.svg)](https://github.com/yardinternet/brave-components/actions/workflows/badges.yml)
 
+Collection of logic-heavy components used in Brave projects.
+
 ## Requirements
 
 - [Sage](https://github.com/roots/sage) >= 10.0
 - [Acorn](https://github.com/roots/acorn) >= 4.0
-
-## Components
-
-Collection of logic-heavy components used in Brave projects.
-
-### Pattern Content
-
-Create a pattern in the WordPress admin and add content to it. This component displays the content of that pattern.
-
-Useage:
-
-```blade
-<x-brave-pattern-content slug="footer" />
-<x-brave-pattern-content slug="header" />
-```
-
-The `FooterPatternContent` hook manages the footer block pattern by automatically setting it as a draft, preventing its deletion, and adding a custom 'Vergrendeld' label in the post list. This ensures the 'footer' pattern remains intact and unmodifiable.
 
 ## Installation
 
@@ -64,3 +49,22 @@ To only publish the views, run:
 ```shell
 wp acorn vendor:publish --provider="Yard\Brave\ComponentsServiceProvider" --tag="views"
 ```
+
+## Components
+
+### Back Button
+
+TODO
+
+### Pattern Content
+
+Shows the content of a pattern by its slug.
+
+Usage:
+
+```blade
+<x-brave-pattern-content slug="footer" />
+<x-brave-pattern-content slug="single-vacancy-contact-information" />
+```
+
+Configure the admin behavior of each pattern in the `components.php` config file to automatically save them as drafts (thus hiding them from the pattern inserter), prevent their deletion, and add custom labels in the admin view.
