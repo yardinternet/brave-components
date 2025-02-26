@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Yard\Brave;
 
-use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Hook\Registrar;
+use Yard\Brave\Components\BackButton;
+use Spatie\LaravelPackageTools\Package;
 use Yard\Brave\Components\PatternContent;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ComponentsServiceProvider extends PackageServiceProvider
 {
@@ -17,7 +18,8 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponent('brave', PatternContent::class);
+			->hasViewComponent('brave', PatternContent::class)
+			->hasViewComponent('brave', BackButton::class);
 	}
 
 	/**
