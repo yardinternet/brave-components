@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Yard\Brave\Components;
 
-use Illuminate\View\View;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\View\Component;
+use Illuminate\View\View;
 use WP_Post;
 
 class BackButton extends Component
@@ -45,11 +45,11 @@ class BackButton extends Component
 	{
 		$parentID = wp_get_post_parent_id($post->ID);
 
-		if (is_int($parentID) && $parentID !== 0) {
-            $this->setLinkToParent($parentID);
-        } else {
-            $this->setLinkToPostTypeParent($post);
-        }
+		if (is_int($parentID) && 0 !== $parentID) {
+			$this->setLinkToParent($parentID);
+		} else {
+			$this->setLinkToPostTypeParent($post);
+		}
 	}
 
 	private function setLinkToParent(int $parentID): void
