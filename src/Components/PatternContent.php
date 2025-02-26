@@ -10,41 +10,45 @@ use Illuminate\View\View;
 
 class PatternContent extends Component
 {
-    public string $patternContent = '';
+	public string $patternContent = '';
 
-    /**
-     * Create a new component instance.
-     */
-    public function __construct(public string $slug = '')
-    {
-        $this->patternContent = $this->getPatternContent();
-    }
+	/**
+	 * Create a new component instance.
+	 */
+	public function __construct(public string $slug = '')
+	{
+		$this->patternContent = $this->getPatternContent();
+	}
 
-    public function getPatternContent(): string
-    {
-        $pattern = new \WP_Query([
-            'post_type' => 'wp_block',
-            'name' => $this->slug,
-        ]);
+	public function getPatternContent(): string
+	{
+		$pattern = new \WP_Query([
+			'post_type' => 'wp_block',
+			'name' => $this->slug,
+		]);
 
-        if (! $pattern->have_posts()) {
-            return '';
-        }
+		if (! $pattern->have_posts()) {
+			return '';
+		}
 
-        $post = $pattern->posts[0];
+		$post = $pattern->posts[0];
 
-        return apply_filters('the_content', $post->post_content);
-    }
+		if ($post instanceof \WP_Post) {
+			return apply_filters('the_content', $post->post_content);
+		}
+		
+		return '';
+	}
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Factory|string
-    {
-        if(empty($this->patternContent)) {
-            return '';
-        }
+	/**
+	 * Get the view / contents that represent the component.
+	 */
+	public function render(): View|Factory|string
+	{
+		if (empty($this->patternContent)) {
+			return '';
+		}
 
-        return view('brave::components.pattern-content');
-    }
+		return view('brave::components.pattern-content');
+	}
 }

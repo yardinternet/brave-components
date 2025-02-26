@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Yard\Brave;
 
-use Yard\Hook\Registrar;
-use Yard\Brave\Components\BackButton;
 use Spatie\LaravelPackageTools\Package;
-use Yard\Brave\Components\PatternContent;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
+use Yard\Brave\Components\BackButton;
+use Yard\Brave\Components\PatternContent;
+use Yard\Hook\Registrar;
 
 class ComponentsServiceProvider extends PackageServiceProvider
 {

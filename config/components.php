@@ -1,7 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 return [
-    'hooks' => [
+	'hooks' => [
 		'pattern_content' => [
 			'enabled' => true,
 			'patterns' => [
@@ -12,6 +14,6 @@ return [
 				],
 				// Add more patterns as needed
 			],
-		]
-    ],
+		],
+	],
 ];

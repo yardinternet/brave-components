@@ -4,94 +4,94 @@ declare(strict_types=1);
 
 namespace Yard\Brave\Hooks;
 
+use WP_Post;
 use Yard\Hook\Action;
 use Yard\Hook\Filter;
-use WP_Post;
 
 class PatternContent
 {
-    private array $patterns;
+	private array $patterns = [];
 
-    public function __construct()
-    {
-        $this->patterns = config('components.hooks.pattern_content.patterns', []);
-    }
+	public function __construct()
+	{
+		$this->patterns = config('components.hooks.pattern_content.patterns', []);
+	}
 
-    /**
-     * Automatically set the specified block patterns as draft after saving.
-     */
-    #[Action('wp_insert_post_data', 10, 3)]
-    public function savePatternsAsDraft(array $data, array $postArray, array $post): array
-    {
-        if ('auto-draft' === $data['post_status'] || !isset($post['post_name'], $post['post_type'])) {
-            return $data;
-        }
+	/**
+	 * Automatically set the specified block patterns as draft after saving.
+	 */
+	#[Action('wp_insert_post_data', 10, 3)]
+	public function savePatternsAsDraft(array $data, array $postArray, array $post): array
+	{
+		if ('auto-draft' === $data['post_status'] || ! isset($post['post_name'], $post['post_type'])) {
+			return $data;
+		}
 
-        if ('wp_block' === $post['post_type']) {
-            $patternConfig = $this->patterns[$post['post_name']] ?? null;
+		if ('wp_block' === $post['post_type']) {
+			$patternConfig = $this->patterns[$post['post_name']] ?? null;
 
-            if ($patternConfig && !empty($patternConfig['save_as_draft'])) {
-                $data['post_status'] = 'draft';
-            }
-        }
+			if ($patternConfig && ! empty($patternConfig['save_as_draft'])) {
+				$data['post_status'] = 'draft';
+			}
+		}
 
-        return $data;
-    }
+		return $data;
+	}
 
-    /**
-     * Prevent deleting the specified block patterns in the admin post list.
-     */
-    #[Filter('post_row_actions', 10, 2)]
-    public function disablePatternDeletion(array $actions, WP_Post $post): array
-    {
-        if ('wp_block' !== $post->post_type) {
-            return $actions;
-        }
+	/**
+	 * Prevent deleting the specified block patterns in the admin post list.
+	 */
+	#[Filter('post_row_actions', 10, 2)]
+	public function disablePatternDeletion(array $actions, WP_Post $post): array
+	{
+		if ('wp_block' !== $post->post_type) {
+			return $actions;
+		}
 
-        $patternConfig = $this->patterns[$post->post_name] ?? null;
+		$patternConfig = $this->patterns[$post->post_name] ?? null;
 
-        if ($patternConfig && !empty($patternConfig['disable_deletion'])) {
-            unset($actions['trash']);
-        }
+		if ($patternConfig && ! empty($patternConfig['disable_deletion'])) {
+			unset($actions['trash']);
+		}
 
-        return $actions;
-    }
+		return $actions;
+	}
 
-    /**
-     * Prevent deletion of the specified block patterns entirely.
-     */
-    #[Action('before_delete_post')]
-    public function preventPatternDeletion(int $postId): void
-    {
-        $post = get_post($postId);
+	/**
+	 * Prevent deletion of the specified block patterns entirely.
+	 */
+	#[Action('before_delete_post')]
+	public function preventPatternDeletion(int $postId): void
+	{
+		$post = get_post($postId);
 
-        if (!$post || 'wp_block' !== $post->post_type) {
-            return;
-        }
+		if (! $post || 'wp_block' !== $post->post_type) {
+			return;
+		}
 
-        $patternConfig = $this->patterns[$post->post_name] ?? null;
+		$patternConfig = $this->patterns[$post->post_name] ?? null;
 
-        if ($patternConfig && !empty($patternConfig['disable_deletion'])) {
-            wp_die(__('Het is niet mogelijk om dit patroon te verwijderen.', 'sage'), '', ['response' => 403]);
-        }
-    }
+		if ($patternConfig && ! empty($patternConfig['disable_deletion'])) {
+			wp_die(__('Het is niet mogelijk om dit patroon te verwijderen.', 'sage'), '', ['response' => 403]);
+		}
+	}
 
-    /**
-     * Add a custom label to the specified block patterns in the admin list.
-     */
-    #[Filter('display_post_states')]
-    public function addCustomPatternLabel(array $postStates, WP_Post $post): array
-    {
-        if ('wp_block' !== $post->post_type) {
-            return $postStates;
-        }
+	/**
+	 * Add a custom label to the specified block patterns in the admin list.
+	 */
+	#[Filter('display_post_states')]
+	public function addCustomPatternLabel(array $postStates, WP_Post $post): array
+	{
+		if ('wp_block' !== $post->post_type) {
+			return $postStates;
+		}
 
-        $patternConfig = $this->patterns[$post->post_name] ?? null;
+		$patternConfig = $this->patterns[$post->post_name] ?? null;
 
-        if ($patternConfig && !empty($patternConfig['custom_label'])) {
-            $postStates['draft'] = __($patternConfig['custom_label'], 'sage');
-        }
+		if ($patternConfig && ! empty($patternConfig['custom_label'])) {
+			$postStates['draft'] = __($patternConfig['custom_label'], 'sage');
+		}
 
-        return $postStates;
-    }
+		return $postStates;
+	}
 }
