@@ -33,6 +33,7 @@ class PatternContent extends Component
 		if ($post instanceof \WP_Post) {
 			return apply_filters('the_content', $post->post_content);
 		}
+
 		return '';
 	}
 
