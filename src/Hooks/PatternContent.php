@@ -72,7 +72,7 @@ class PatternContent
 		$patternConfig = $this->patterns[$post->post_name] ?? null;
 
 		if ($patternConfig && ! empty($patternConfig['disable_deletion'])) {
-			wp_die(__('Het is niet mogelijk om dit patroon te verwijderen.', 'sage'), '', ['response' => 403]);
+			wp_die('Het is niet mogelijk om dit patroon te verwijderen.', '', ['response' => 403]);
 		}
 	}
 
@@ -89,7 +89,7 @@ class PatternContent
 		$patternConfig = $this->patterns[$post->post_name] ?? null;
 
 		if ($patternConfig && ! empty($patternConfig['custom_label'])) {
-			$postStates['draft'] = __($patternConfig['custom_label'], 'sage');
+			$postStates['draft'] = $patternConfig['custom_label'];
 		}
 
 		return $postStates;
