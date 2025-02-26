@@ -54,7 +54,15 @@ wp acorn vendor:publish --provider="Yard\Brave\ComponentsServiceProvider" --tag=
 
 ### Back Button
 
-TODO
+Shows a back button that determines its link and text by checking the parent page. If the post has no parent, it sets the link to a predefined parent page slug or defaults to "javascript:history.back();".
+
+Usage:
+
+```blade
+<x-brave-back-button /> 
+<x-brave-back-button text="Terug naar het vacature-overzicht" />
+<x-brave-back-button className="custom-class" />
+```
 
 ### Pattern Content
 
