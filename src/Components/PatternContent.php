@@ -12,9 +12,6 @@ class PatternContent extends Component
 {
 	public string $patternContent = '';
 
-	/**
-	 * Create a new component instance.
-	 */
 	public function __construct(public string $slug = '')
 	{
 		$this->patternContent = $this->getPatternContent();
@@ -36,13 +33,9 @@ class PatternContent extends Component
 		if ($post instanceof \WP_Post) {
 			return apply_filters('the_content', $post->post_content);
 		}
-		
 		return '';
 	}
 
-	/**
-	 * Get the view / contents that represent the component.
-	 */
 	public function render(): View|Factory|string
 	{
 		if (empty($this->patternContent)) {
