@@ -22,9 +22,6 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->hasViewComponent('brave', BackButton::class);
 	}
 
-	/**
-	 * @throws ReflectionException
-	 */
 	public function packageBooted(): void
 	{
 		$hooks = [];
