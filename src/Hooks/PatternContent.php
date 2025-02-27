@@ -30,7 +30,7 @@ class PatternContent
 		if ('wp_block' === $post['post_type']) {
 			$patternConfig = $this->patterns[$post['post_name']] ?? [];
 
-			if ($patternConfig['save_as_draft'] ?? false ) {
+			if ($patternConfig['save_as_draft'] ?? false) {
 				$data['post_status'] = 'draft';
 			}
 		}
