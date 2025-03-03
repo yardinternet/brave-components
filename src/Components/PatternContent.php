@@ -21,6 +21,7 @@ class PatternContent extends Component
 	{
 		$pattern = new \WP_Query([
 			'post_type' => 'wp_block',
+			'post_status' => ['publish', 'draft'],
 			'name' => $this->slug,
 		]);
 
