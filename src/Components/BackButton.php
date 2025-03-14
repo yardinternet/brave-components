@@ -13,7 +13,7 @@ class BackButton extends Component
 {
 	public string $link = 'javascript:history.back();';
 	public string $text = 'Terug';
-	public string $align = 'alignwide';
+	public string $align = '';
 	public string $className;
 
 	public function __construct(
