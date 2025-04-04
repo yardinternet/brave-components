@@ -6,10 +6,11 @@ namespace Yard\Brave\Hooks;
 
 use Yard\Hook\Action;
 
-class FocalPoint {
-
+class FocalPoint
+{
 	#[Action('init')]
-	public function registerFeaturedImageFocalPoint(): void {
+	public function registerFeaturedImageFocalPoint(): void
+	{
 		register_post_meta('', 'featured_image_focal_point', [
 			'type' => 'object',
 			'description' => __('Focuspunt van de uitgelichte afbeelding', 'sage'),
@@ -32,14 +33,15 @@ class FocalPoint {
 		]);
 	}
 	#[Action('post_thumbnail_html')]
-	public function addFocalPointToFeaturedImageHtml(string $html, int $postID): string {
+	public function addFocalPointToFeaturedImageHtml(string $html, int $postID): string
+	{
 		if (strlen($html) === 0) {
 			return $html;
 		}
 
 		$focalPoint = get_post_meta($postID, 'featured_image_focal_point', true);
 
-		if (!is_array($focalPoint) || !isset($focalPoint['x']) || !isset($focalPoint['y'])) {
+		if (! is_array($focalPoint) || ! isset($focalPoint['x']) || ! isset($focalPoint['y'])) {
 			return $html;
 		}
 
@@ -47,7 +49,7 @@ class FocalPoint {
 
 		$doc = new \DOMDocument();
 		libxml_use_internal_errors(true);
-		if (!$doc->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD)) {
+		if (! $doc->loadHTML($html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD)) {
 			libxml_clear_errors();
 
 			return $html; // Return original HTML if loading fails
