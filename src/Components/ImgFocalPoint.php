@@ -24,12 +24,14 @@ class ImgFocalPoint extends Component
 		string $loading = 'lazy',
 		string $fetchPriority = '',
 		string $alt = '',
+		string $src = '',
+		string $position = 'object-position'
 	) {
 		$this->class = $class;
-		$this->src = $this->getImageURL($id, $size);
+		$this->src = $src ?: $this->getImageURL($id, $size);
 		$this->loading = $loading;
 		$this->alt = $alt;
-		$this->focalPoint = $this->calculateFocalPoint($id);
+		$this->focalPoint = $this->calculateFocalPoint($id, $position);
 		$this->fetchPriority = $fetchPriority;
 	}
 
@@ -42,7 +44,7 @@ class ImgFocalPoint extends Component
 		return view('brave::components.img-focal-point');
 	}
 
-	public function calculateFocalPoint(int $id): string
+	public function calculateFocalPoint(int $id, string $position): string
 	{
 		if (! function_exists('get_field')) {
 			$focalPoint = [
@@ -59,7 +61,7 @@ class ImgFocalPoint extends Component
 
 		return sprintf(
 			'%s:%d%% %d%%;',
-			'object-position',
+			$position,
 			$focalPoint['x'] * 100,
 			$focalPoint['y'] * 100
 		);
