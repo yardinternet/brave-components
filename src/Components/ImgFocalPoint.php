@@ -17,7 +17,7 @@ class ImgFocalPoint extends Component
 		public int $id,
 		public string $size = 'medium_large',
 		public string $alt = '',
-		public string $position = 'object-position', //Kan dit weg??
+		public string $position = 'object-position',
 		public string $loading = 'lazy',
 		public string $fetchPriority = '',
 		string $src = '',
