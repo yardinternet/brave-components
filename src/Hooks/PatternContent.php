@@ -20,7 +20,7 @@ class PatternContent
 	/**
 	 * Automatically set the specified block patterns as draft after saving.
 	 */
-	#[Action('wp_insert_post_data', 10, 3)]
+	#[Action('wp_insert_post_data', 10)]
 	public function savePatternsAsDraft(array $data, array $postArray, array $post): array
 	{
 		if ('auto-draft' === $data['post_status'] || ! isset($post['post_name'], $post['post_type'])) {
@@ -41,7 +41,7 @@ class PatternContent
 	/**
 	 * Prevent deleting the specified block patterns in the admin post list.
 	 */
-	#[Filter('post_row_actions', 10, 2)]
+	#[Filter('post_row_actions', 10)]
 	public function disablePatternDeletion(array $actions, WP_Post $post): array
 	{
 		if ('wp_block' !== $post->post_type) {
