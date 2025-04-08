@@ -12,27 +12,18 @@ class ImgFocalPoint extends Component
 {
 	public string $focalPoint = '';
 	public string $src = '';
-	public string $class = '';
-	public string $loading = '';
-	public string $fetchPriority = '';
-	public string $alt = '';
 
 	public function __construct(
 		public int $id,
 		public string $size = 'medium_large',
-		string $class = '',
-		string $loading = 'lazy',
-		string $fetchPriority = '',
-		string $alt = '',
+		public string $alt = '',
+		public string $position = 'object-position', //Kan dit weg??
+		public string $loading = 'lazy',
+		public string $fetchPriority = '',
 		string $src = '',
-		string $position = 'object-position'
 	) {
-		$this->class = $class;
-		$this->src = $src ?: $this->getImageURL($id, $size);
-		$this->loading = $loading;
-		$this->alt = $alt;
+		$this->src = '' === $src ? $this->getImageURL($id, $size) : $src;
 		$this->focalPoint = $this->calculateFocalPoint($id, $position);
-		$this->fetchPriority = $fetchPriority;
 	}
 
 	public function render(): View|Factory|string
