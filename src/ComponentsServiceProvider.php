@@ -7,6 +7,7 @@ namespace Yard\Brave;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Brave\Components\BackButton;
+use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
 use Yard\Brave\Components\PatternContent;
 use Yard\Hook\Registrar;
@@ -19,7 +20,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', PatternContent::class, BackButton::class, ImgFocalPoint::class);
+			->hasViewComponents('brave', PatternContent::class, BackButton::class, ImgFocalPoint::class, FeedbackForm::class);
 	}
 
 	public function packageBooted(): void
