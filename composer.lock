@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e853807abcba8d7064464aee5114dda4",
+    "content-hash": "9688ad81d145cfc379caaca6859c8156",
     "packages": [
         {
             "name": "brick/math",
@@ -6123,26 +6123,29 @@
         },
         {
             "name": "doctrine/deprecations",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/deprecations.git",
-                "reference": "31610dbb31faa98e6b5447b62340826f54fbc4e9"
+                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/31610dbb31faa98e6b5447b62340826f54fbc4e9",
-                "reference": "31610dbb31faa98e6b5447b62340826f54fbc4e9",
+                "url": "https://api.github.com/repos/doctrine/deprecations/zipball/459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
+                "reference": "459c2f5dd3d6a4633d3b5f46ee2b1c40f57d3f38",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.1 || ^8.0"
             },
+            "conflict": {
+                "phpunit/phpunit": "<=7.5 || >=13"
+            },
             "require-dev": {
-                "doctrine/coding-standard": "^9 || ^12",
-                "phpstan/phpstan": "1.4.10 || 2.0.3",
+                "doctrine/coding-standard": "^9 || ^12 || ^13",
+                "phpstan/phpstan": "1.4.10 || 2.1.11",
                 "phpstan/phpstan-phpunit": "^1.0 || ^2",
-                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5",
+                "phpunit/phpunit": "^7.5 || ^8.5 || ^9.6 || ^10.5 || ^11.5 || ^12",
                 "psr/log": "^1 || ^2 || ^3"
             },
             "suggest": {
@@ -6162,9 +6165,9 @@
             "homepage": "https://www.doctrine-project.org/",
             "support": {
                 "issues": "https://github.com/doctrine/deprecations/issues",
-                "source": "https://github.com/doctrine/deprecations/tree/1.1.4"
+                "source": "https://github.com/doctrine/deprecations/tree/1.1.5"
             },
-            "time": "2024-12-07T21:18:45+00:00"
+            "time": "2025-04-07T20:06:18+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -7266,16 +7269,16 @@
         },
         {
             "name": "orchestra/sidekick",
-            "version": "v1.1.0",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/sidekick.git",
-                "reference": "33c6b297761a1b2bd398e99245bf85e17773723b"
+                "reference": "ebdf88caa31735f7d00f289f070d4e9772774174"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/33c6b297761a1b2bd398e99245bf85e17773723b",
-                "reference": "33c6b297761a1b2bd398e99245bf85e17773723b",
+                "url": "https://api.github.com/repos/orchestral/sidekick/zipball/ebdf88caa31735f7d00f289f070d4e9772774174",
+                "reference": "ebdf88caa31735f7d00f289f070d4e9772774174",
                 "shasum": ""
             },
             "require": {
@@ -7314,31 +7317,31 @@
             "description": "Packages Toolkit Utilities and Helpers for Laravel",
             "support": {
                 "issues": "https://github.com/orchestral/sidekick/issues",
-                "source": "https://github.com/orchestral/sidekick/tree/v1.1.0"
+                "source": "https://github.com/orchestral/sidekick/tree/v1.1.1"
             },
-            "time": "2025-03-15T16:02:42+00:00"
+            "time": "2025-04-05T16:44:56+00:00"
         },
         {
             "name": "orchestra/testbench",
-            "version": "v8.34.0",
+            "version": "v8.35.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench.git",
-                "reference": "34901f999ea67138641b11af682255b94614a8f2"
+                "reference": "8f5b1e0d232481f29f8c081e2e3f1ccd2e314085"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench/zipball/34901f999ea67138641b11af682255b94614a8f2",
-                "reference": "34901f999ea67138641b11af682255b94614a8f2",
+                "url": "https://api.github.com/repos/orchestral/testbench/zipball/8f5b1e0d232481f29f8c081e2e3f1ccd2e314085",
+                "reference": "8f5b1e0d232481f29f8c081e2e3f1ccd2e314085",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
                 "fakerphp/faker": "^1.21",
-                "laravel/framework": "^10.48.28",
+                "laravel/framework": "^10.48.29",
                 "mockery/mockery": "^1.5.1",
-                "orchestra/testbench-core": "^8.35.0",
-                "orchestra/workbench": "^8.17.3",
+                "orchestra/testbench-core": "^8.36.0",
+                "orchestra/workbench": "^8.17.5",
                 "php": "^8.1",
                 "phpunit/phpunit": "^9.6|^10.1",
                 "symfony/process": "^6.2",
@@ -7369,34 +7372,34 @@
             ],
             "support": {
                 "issues": "https://github.com/orchestral/testbench/issues",
-                "source": "https://github.com/orchestral/testbench/tree/v8.34.0"
+                "source": "https://github.com/orchestral/testbench/tree/v8.35.0"
             },
-            "time": "2025-03-06T10:59:08+00:00"
+            "time": "2025-04-06T11:27:49+00:00"
         },
         {
             "name": "orchestra/testbench-core",
-            "version": "v8.35.0",
+            "version": "v8.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/testbench-core.git",
-                "reference": "d31228683544aa204aba237d72c7753783c36ec1"
+                "reference": "079d4a7e38324a2d7407c6a1897e8aa081dca59f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/d31228683544aa204aba237d72c7753783c36ec1",
-                "reference": "d31228683544aa204aba237d72c7753783c36ec1",
+                "url": "https://api.github.com/repos/orchestral/testbench-core/zipball/079d4a7e38324a2d7407c6a1897e8aa081dca59f",
+                "reference": "079d4a7e38324a2d7407c6a1897e8aa081dca59f",
                 "shasum": ""
             },
             "require": {
                 "composer-runtime-api": "^2.2",
-                "orchestra/sidekick": "^1.0.5",
+                "orchestra/sidekick": "^1.1.0",
                 "php": "^8.1",
                 "symfony/deprecation-contracts": "^2.5|^3.0",
                 "symfony/polyfill-php83": "^1.31"
             },
             "conflict": {
                 "brianium/paratest": "<6.4.0|>=7.0.0 <7.1.4|>=8.0.0",
-                "laravel/framework": "<10.48.28|>=11.0.0",
+                "laravel/framework": "<10.48.29|>=11.0.0",
                 "laravel/serializable-closure": "<1.3.0|>=3.0.0",
                 "nunomaduro/collision": "<6.4.0|>=7.0.0 <7.4.0|>=8.0.0",
                 "orchestra/testbench-dusk": "<8.32.0|>=9.0.0",
@@ -7405,7 +7408,7 @@
             },
             "require-dev": {
                 "fakerphp/faker": "^1.21",
-                "laravel/framework": "^10.48.28",
+                "laravel/framework": "^10.48.29",
                 "laravel/pint": "^1.20",
                 "laravel/serializable-closure": "^1.3|^2.0",
                 "mockery/mockery": "^1.5.1",
@@ -7420,7 +7423,7 @@
                 "brianium/paratest": "Allow using parallel testing (^6.4|^7.1.4).",
                 "ext-pcntl": "Required to use all features of the console signal trapping.",
                 "fakerphp/faker": "Allow using Faker for testing (^1.21).",
-                "laravel/framework": "Required for testing (^10.48.28).",
+                "laravel/framework": "Required for testing (^10.48.29).",
                 "mockery/mockery": "Allow using Mockery for testing (^1.5.1).",
                 "nunomaduro/collision": "Allow using Laravel style tests output and parallel testing (^6.4|^7.4).",
                 "orchestra/testbench-browser-kit": "Allow using legacy Laravel BrowserKit for testing (^8.0).",
@@ -7467,20 +7470,20 @@
                 "issues": "https://github.com/orchestral/testbench/issues",
                 "source": "https://github.com/orchestral/testbench-core"
             },
-            "time": "2025-03-06T10:00:05+00:00"
+            "time": "2025-04-06T06:00:41+00:00"
         },
         {
             "name": "orchestra/workbench",
-            "version": "v8.17.4",
+            "version": "v8.17.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchestral/workbench.git",
-                "reference": "53e91e3b240b31603595662e56bb1debfee7be23"
+                "reference": "15a753d0c5c63a54c282765310dbb590ffd61348"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/workbench/zipball/53e91e3b240b31603595662e56bb1debfee7be23",
-                "reference": "53e91e3b240b31603595662e56bb1debfee7be23",
+                "url": "https://api.github.com/repos/orchestral/workbench/zipball/15a753d0c5c63a54c282765310dbb590ffd61348",
+                "reference": "15a753d0c5c63a54c282765310dbb590ffd61348",
                 "shasum": ""
             },
             "require": {
@@ -7532,9 +7535,9 @@
             ],
             "support": {
                 "issues": "https://github.com/orchestral/workbench/issues",
-                "source": "https://github.com/orchestral/workbench/tree/v8.17.4"
+                "source": "https://github.com/orchestral/workbench/tree/v8.17.5"
             },
-            "time": "2025-03-20T06:58:13+00:00"
+            "time": "2025-04-06T10:51:30+00:00"
         },
         {
             "name": "pestphp/pest",
@@ -7903,6 +7906,49 @@
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
             "time": "2022-02-21T01:04:05+00:00"
+        },
+        {
+            "name": "php-stubs/gravity-forms-stubs",
+            "version": "v2.9.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-stubs/gravity-forms-stubs.git",
+                "reference": "eabedbf99ff023329cffba624356389cf99cd176"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-stubs/gravity-forms-stubs/zipball/eabedbf99ff023329cffba624356389cf99cd176",
+                "reference": "eabedbf99ff023329cffba624356389cf99cd176",
+                "shasum": ""
+            },
+            "require": {
+                "php-stubs/wordpress-stubs": "^5.3 || ^6.0"
+            },
+            "require-dev": {
+                "php": "~7.1 || ~8.0",
+                "php-stubs/generator": "^0.8.0"
+            },
+            "suggest": {
+                "szepeviktor/phpstan-wordpress": "WordPress extensions for PHPStan"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Gravity Forms function and class declaration stubs for static analysis.",
+            "homepage": "https://github.com/php-stubs/gravity-forms-stubs",
+            "keywords": [
+                "PHPStan",
+                "gravity-forms",
+                "static analysis",
+                "wordpress"
+            ],
+            "support": {
+                "issues": "https://github.com/php-stubs/gravity-forms-stubs/issues",
+                "source": "https://github.com/php-stubs/gravity-forms-stubs/tree/v2.9.3"
+            },
+            "time": "2025-02-21T16:58:14+00:00"
         },
         {
             "name": "php-stubs/wordpress-stubs",
