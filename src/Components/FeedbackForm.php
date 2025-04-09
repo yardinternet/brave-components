@@ -29,9 +29,9 @@ class FeedbackForm extends Component
 			return '';
 		}
 
-        if(0 === $this->id) {
-            return '';
-        }
+		if (0 === $this->id) {
+			return '';
+		}
 
 		return GFForms::get_form(
 			$this->id,
