@@ -29,6 +29,10 @@ class FeedbackForm extends Component
 			return '';
 		}
 
+        if(0 === $this->id) {
+            return '';
+        }
+
 		return GFForms::get_form(
 			$this->id,
 			$this->displayTitle,
@@ -39,7 +43,7 @@ class FeedbackForm extends Component
 
 	public function render(): View|Factory|string
 	{
-		if (empty($this->form) || is_front_page()) {
+		if (0 === strlen($this->form) || is_front_page()) {
 			return '';
 		}
 
