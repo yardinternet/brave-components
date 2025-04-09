@@ -16,5 +16,5 @@ return [
 			],
 		],
 	],
-	'feedbackFormId' => env('FEEDBACK_FORM_ID'),
+	'feedbackFormId' => env('FEEDBACK_FORM_ID', ''),
 ];
