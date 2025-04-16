@@ -12,6 +12,11 @@ return [
 					'disable_deletion' => true,
 					'custom_label' => 'Vergrendeld',
 				],
+				'404' => [
+					'save_as_draft' => true,  // Removes the pattern from the pattern-inserter
+					'disable_deletion' => true,
+					'custom_label' => 'Vergrendeld',
+				],
 				// Add more patterns as needed
 			],
 		],
