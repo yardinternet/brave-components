@@ -10,6 +10,7 @@ use Yard\Brave\Components\BackButton;
 use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
 use Yard\Brave\Components\PatternContent;
+use Yard\Brave\Components\SocialIcon;
 use Yard\Hook\Registrar;
 
 class ComponentsServiceProvider extends PackageServiceProvider
@@ -20,7 +21,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', PatternContent::class, BackButton::class, ImgFocalPoint::class, FeedbackForm::class);
+			->hasViewComponents('brave', PatternContent::class, SocialIcon::class, BackButton::class, ImgFocalPoint::class, FeedbackForm::class);
 	}
 
 	public function packageBooted(): void
