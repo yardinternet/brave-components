@@ -66,7 +66,7 @@ Usage:
 
 ### Pattern Content
 
-Shows the content of a pattern by its slug.
+Shows the content of a pattern by its slug. You can find the slug (post name) using the `wp post get` CLI command and providing the post ID.
 
 Usage:
 
