@@ -11,7 +11,7 @@ Collection of logic-heavy components used in Brave projects.
 ## Requirements
 
 - [Sage](https://github.com/roots/sage) >= 10.0
-- [Acorn](https://github.com/roots/acorn) >= 4.0
+- [Acorn](https://github.com/roots/acorn) >= 5.0
 
 ## Installation
 
