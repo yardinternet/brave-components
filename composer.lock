@@ -5618,38 +5618,28 @@
         },
         {
             "name": "yard/wp-hook-registrar",
-            "version": "v1.0.2",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yardinternet/wp-hook-registrar.git",
-                "reference": "c56ffde0d0a1efb064985886b8e361df8c3c7288"
+                "reference": "b1d8e24d2ec12cbca2cf9fd62d12f85633833f62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yardinternet/wp-hook-registrar/zipball/c56ffde0d0a1efb064985886b8e361df8c3c7288",
-                "reference": "c56ffde0d0a1efb064985886b8e361df8c3c7288",
+                "url": "https://api.github.com/repos/yardinternet/wp-hook-registrar/zipball/b1d8e24d2ec12cbca2cf9fd62d12f85633833f62",
+                "reference": "b1d8e24d2ec12cbca2cf9fd62d12f85633833f62",
                 "shasum": ""
             },
             "require": {
-                "php": ">=8.1",
-                "spatie/laravel-package-tools": "^1.16"
+                "php": ">=8.1"
             },
             "require-dev": {
                 "10up/wp_mock": "^0.4.2",
-                "larastan/larastan": "^2.0",
-                "orchestra/testbench": "^8.23",
                 "pestphp/pest": "^2.34",
                 "szepeviktor/phpstan-wordpress": "^1.0",
                 "yard/php-cs-fixer-rules": "^1.0"
             },
             "type": "package",
-            "extra": {
-                "acorn": {
-                    "providers": [
-                        "Yard\\Hook\\HookServiceProvider"
-                    ]
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Yard\\Hook\\": "src/"
@@ -5659,12 +5649,12 @@
             "license": [
                 "MIT"
             ],
-            "description": "An Acorn package for WordPress hook registration.",
+            "description": "A package for WordPress hook registration.",
             "support": {
                 "issues": "https://github.com/yardinternet/wp-hook-registrar/issues",
-                "source": "https://github.com/yardinternet/wp-hook-registrar/tree/v1.0.2"
+                "source": "https://github.com/yardinternet/wp-hook-registrar/tree/v2.0.1"
             },
-            "time": "2024-12-06T21:53:16+00:00"
+            "time": "2025-10-23T14:28:15+00:00"
         }
     ],
     "packages-dev": [
