@@ -17,22 +17,13 @@ Collection of logic-heavy components used in Brave projects.
 
 To install this package using Composer, follow these steps:
 
-1. Add the following to the `repositories` section of your `composer.json`:
-
-    ```json
-    {
-      "type": "vcs",
-      "url": "git@github.com:yardinternet/brave-components.git"
-    }
-    ```
-
-2. Install this package with Composer:
+1. Install this package with Composer:
 
     ```sh
     composer require yard/brave-components
     ```
 
-3. Run the Acorn WP-CLI command to discover this package:
+2. Run the Acorn WP-CLI command to discover this package:
 
     ```shell
     wp acorn package:discover
@@ -76,3 +67,7 @@ Usage:
 ```
 
 Configure the admin behavior of each pattern in the `components.php` config file to automatically save them as drafts (thus hiding them from the pattern inserter), prevent their deletion, and add custom labels in the admin view.
+
+## About us
+
+[![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)
