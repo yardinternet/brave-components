@@ -55,6 +55,24 @@ Usage:
 <x-brave-back-button className="custom-class" />
 ```
 
+### Dialog
+
+Usage:
+
+```blade
+<x-brave::dialog.trigger dialogId="my-dialog">
+    Open dialog
+</x-brave::dialog.trigger>
+
+<x-brave-dialog id="my-dialog" ariaLabel="My dialog">
+    <p>This is the content of the dialog.</p>
+    
+    <x-brave::dialog.trigger dialogId="my-dialog">
+        Close dialog
+    </x-brave::dialog.trigger>
+</x-brave-dialog>
+```
+
 ### Pattern Content
 
 Shows the content of a pattern by its slug. You can find the slug (post name) using the `wp post get` CLI command and providing the post ID.
