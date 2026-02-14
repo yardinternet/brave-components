@@ -55,6 +55,23 @@ Usage:
 <x-brave-back-button className="custom-class" />
 ```
 
+### Breadcrumb
+
+U ses the [Log1x/crumb](https://github.com/Log1x/crumb) package to generate a breadcrumb based on the current page. Also adds posts added through the `parent-page` supports feature. Usage:
+
+```blade
+<x-brave-breadcrumb listClass="" itemClass="" linkClass="" currentItemClass="" />
+```
+
+Or pass your own collection of items to show a custom breadcrumb:
+
+```blade
+<x-brave-breadcrumb :items="collect([
+    ['id' => null, 'url' => home_url(), 'label' => 'Home'],
+    ['id' => null, 'url' => home_url('woo-verzoeken'), 'label' => 'Woo verzoeken'],
+])" />
+```
+
 ### Dialog
 
 Usage:
