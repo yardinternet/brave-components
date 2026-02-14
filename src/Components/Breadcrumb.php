@@ -22,7 +22,7 @@ class Breadcrumb extends Component
 		$this->items = $this->items->isNotEmpty() ? $this->items : $this->items();
 	}
 
-		public function render(): Factory|View
+	public function render(): Factory|View
 	{
 		return view('brave::components.breadcrumb', [
 			'items' => $this->items,
