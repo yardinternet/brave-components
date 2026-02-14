@@ -8,6 +8,7 @@ use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Brave\Components\Accordion;
 use Yard\Brave\Components\BackButton;
+use Yard\Brave\Components\Breadcrumb;
 use Yard\Brave\Components\Dialog;
 use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
@@ -23,7 +24,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', Accordion::class, BackButton::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, PatternContent::class, SocialIcon::class);
+			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, PatternContent::class, SocialIcon::class);
 	}
 
 	public function packageBooted(): void
