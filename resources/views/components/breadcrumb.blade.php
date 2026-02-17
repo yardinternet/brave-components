@@ -1,4 +1,3 @@
-
 @if ($items->isNotEmpty())
 	<nav aria-label="Broodkruimelpad" @class(['brave-breadcrumb', $attributes->get('class')])>
 		<ol @class(['brave-breadcrumb-list', $listClass]) itemtype="https://schema.org/BreadcrumbList" itemscope>
