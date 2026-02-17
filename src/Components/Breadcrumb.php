@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Collection;
 use Illuminate\View\Component;
 use Illuminate\View\View;
-use Log1x\Crumb\Facades\Crumb;
+use Yard\Brave\Components\Breadcrumb\Crumb;
 
 class Breadcrumb extends Component
 {
@@ -31,11 +31,13 @@ class Breadcrumb extends Component
 
 	private function items(): Collection
 	{
-		$items = Crumb::build();
+		$crumb = new Crumb(config('components.breadcrumb.labels'));
+		$items = $crumb->build();
 
 		if (! is_singular() || is_search() || ! $this->hasParentPage(get_the_ID())) {
 			return $items;
 		}
+
 
 		$parentItems = $this->getParentItems(get_the_ID());
 
