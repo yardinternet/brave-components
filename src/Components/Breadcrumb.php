@@ -32,68 +32,7 @@ class Breadcrumb extends Component
 	private function items(): Collection
 	{
 		$crumb = new Crumb(config('components.breadcrumb.labels'));
-		$items = $crumb->build();
 
-		if (! is_singular() || is_search() || ! $this->hasParentPage(get_the_ID())) {
-			return $items;
-		}
-
-
-		$parentItems = $this->getParentItems(get_the_ID());
-
-		if ($parentItems->isNotEmpty()) {
-			$items->splice(1, 0, $parentItems->all());
-			$items = $this->removeArchive($items, get_post_type());
-		}
-
-		return $items;
-	}
-
-	private function hasParentPage(int $postId): bool
-	{
-		return post_type_supports(get_post_type($postId), 'parent-page');
-	}
-
-	/**
-	 * Add `parent-page` support items
-	 */
-	private function getParentItems(int $postId): Collection
-	{
-		$parentIds = $this->getParentPagesIds($postId);
-
-		return collect(array_reverse($parentIds))
-			->map(fn (int $id) => [
-				'id' => $id,
-				'label' => get_the_title($id),
-				'url' => get_permalink($id),
-			]);
-	}
-
-	private function getParentPagesIds(int $postId): array
-	{
-		if (! $this->hasParentPage($postId)) {
-			return [];
-		}
-
-		$parentPageSlug = get_all_post_type_supports(get_post_type($postId))['parent-page'][0]['slug'] ?? null;
-		$parent = $parentPageSlug ? get_page_by_path($parentPageSlug) : null;
-		if (! $parent) {
-			return [];
-		}
-		$ancestors = get_post_ancestors($parent->ID);
-
-		return [$parent->ID, ...$ancestors];
-	}
-
-	/**
-	 * Remove the CPT archive that Log1x/Crumb adds.
-	 */
-	private function removeArchive(Collection $items, string $cpt): Collection
-	{
-		$archiveUrl = get_post_type_archive_link($cpt);
-
-		return $items
-			->reject(fn ($item) => isset($item['url']) && $item['url'] === $archiveUrl)
-			->values();
+		return $crumb->build();
 	}
 }

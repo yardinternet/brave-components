@@ -29,6 +29,6 @@ return [
 			'search' => 'Zoekresultaten',
 			'author' => 'Auteur: %s',
 			'not_found' => '404 error',
-		]
-	]
+		],
+	],
 ];
