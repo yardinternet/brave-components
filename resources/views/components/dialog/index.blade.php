@@ -4,7 +4,7 @@
     {{ $attributes->merge([
         'id' => $id,
         'aria-label' => $ariaLabel,
-        'class' => 'js-brave-dialog ' . $attributes->get('class'),
+        'class' => 'js-brave-dialog',
 		'data-use-show' => $useShow,
     ]) }}>
     {{ $slot }}
