@@ -22,4 +22,13 @@ return [
 		],
 	],
 	'feedbackFormId' => env('FEEDBACK_FORM_ID', ''),
+	'breadcrumb' => [
+		'labels' => [
+			'home' => 'Home',
+			'blog' => 'Blog',
+			'search' => 'Zoekresultaten',
+			'author' => 'Auteur: %s',
+			'not_found' => '404 error',
+		]
+	]
 ];
