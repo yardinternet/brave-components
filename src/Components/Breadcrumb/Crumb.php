@@ -186,7 +186,7 @@ class Crumb
         }
 
         if (is_post_type_archive()) {
-            $this->add(
+			$this->add(
                 post_type_archive_title('', false)
             );
             return $this->breadcrumb;
@@ -234,11 +234,17 @@ class Crumb
         );
 
         if (! empty($type)) {
-            $this->add(
-                $type->label,
-                get_post_type_archive_link($type->name),
-                get_queried_object_id()
-            );
+			$parentItems = $this->getParentItems(get_the_ID());
+
+			if ($parentItems->isNotEmpty()) {
+				$parentItems->map(function ($item) {
+					$this->add(
+						$item['label'],
+						$item['url'],
+						$item['id']
+					);
+				});
+			}
         }
 
         $this->add(
@@ -248,4 +254,37 @@ class Crumb
         );
         return $this->breadcrumb;
     }
+
+	private function getParentItems(int $postId): Collection
+	{
+		$parentIds = $this->getParentPagesIds($postId);
+
+		return collect(array_reverse($parentIds))
+			->map(fn (int $id) => [
+				'id' => $id,
+				'label' => get_the_title($id),
+				'url' => get_permalink($id),
+			]);
+	}
+
+	private function getParentPagesIds(int $postId): array
+	{
+		if (! $this->hasParentPage($postId)) {
+			return [];
+		}
+
+		$parentPageSlug = get_all_post_type_supports(get_post_type($postId))['parent-page'][0]['slug'] ?? null;
+		$parent = $parentPageSlug ? get_page_by_path($parentPageSlug) : null;
+		if (! $parent) {
+			return [];
+		}
+		$ancestors = get_post_ancestors($parent->ID);
+
+		return [$parent->ID, ...$ancestors];
+	}
+
+		private function hasParentPage(int $postId): bool
+	{
+		return post_type_supports(get_post_type($postId), 'parent-page');
+	}
 }
