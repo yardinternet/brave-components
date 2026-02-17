@@ -4,7 +4,7 @@
     {{ $attributes->merge([
         'data-dialog-id' => $dialogId,
         'type' => 'button',
-        'class' => 'js-brave-dialog-trigger ' . $attributes->get('class'),
+        'class' => 'js-brave-dialog-trigger',
     ]) }}>
     {{ $slot }}
 </button>
