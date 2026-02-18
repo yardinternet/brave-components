@@ -57,7 +57,7 @@ Usage:
 
 ### Breadcrumb
 
-U ses the [Log1x/crumb](https://github.com/Log1x/crumb) package to generate a breadcrumb based on the current page. Also adds posts added through the `parent-page` supports feature. Usage:
+Generate a breadcrumb based on the current page. Also adds posts added through the `parent-page` supports feature. Usage:
 
 ```blade
 <x-brave-breadcrumb listClass="" itemClass="" linkClass="" currentItemClass="" />

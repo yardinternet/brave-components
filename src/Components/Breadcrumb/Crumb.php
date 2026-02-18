@@ -40,13 +40,13 @@ class Crumb
 		if (
 			true === $blog &&
 			get_option('show_on_front') === 'page' &&
-			! empty($blogId = get_option('page_for_posts')) &&
+			! empty($postId = get_option('page_for_posts')) &&
 			! empty($this->config['blog'])
 		) {
 			$this->add(
 				$this->config['blog'],
-				get_permalink((int)$blogId),
-				(int)$blogId
+				get_permalink((int)$postId),
+				(int)$postId
 			);
 		}
 
