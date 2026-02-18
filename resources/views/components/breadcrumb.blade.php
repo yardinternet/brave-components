@@ -10,7 +10,7 @@
 							<span class="brave-breadcrumb-item-link-span" itemprop="name">{!! $item['label'] !!}</span>
 						</a>
 					@else
-						<span @class(['brave-breadcrumb-item-current', $currentItemClass]) itemprop="name">{{ $item['label'] }}</span>
+						<span @class(['brave-breadcrumb-item-current', $currentItemClass]) itemprop="name">{!! $item['label'] !!}</span>
 					@endif
 					<meta itemprop="position" content="{{ $loop->iteration }}">
 				</li>
