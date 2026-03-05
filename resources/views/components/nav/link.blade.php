@@ -2,6 +2,7 @@
     'item' => null,
     'href' => null,
     'active' => false,
+	'hasChildren' => null,
 ])
 
 @php
@@ -17,7 +18,7 @@
         );
     }
 
-	$hasChildren = !empty($item?->children);
+	$hasChildren = $hasChildren ?? !empty($item?->children);
 
     $href = $hasChildren
         ? '#'
@@ -31,6 +32,7 @@
 <a {{ $attributes
     ->class([
         'brave-nav-link',
+		'brave-nav-link-has-children' => $hasChildren,
         'is-active' => $active,
         $item->classes ?? null,
     ])
