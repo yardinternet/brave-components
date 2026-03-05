@@ -113,6 +113,59 @@ Usage:
 <x-brave-read-speaker />
 ```
 
+### Nav
+
+Navigation component with optional dropdowns. Provides the right ARIA attributes and keyboard navigation for accessibility.
+
+Dropdown visibility is controlled via `aria-expanded`. Use it in combination with the `group` class on the parent item and `group-has-aria-expanded` variants to show/hide the dropdown.
+
+**Dropdown modes**
+
+- `click` (default) — opens on click
+- `hover` - opens on hover, closes when the mouse leaves the item
+
+For accessibility, the `<x-brave::nav>` component requires an `aria-label`.
+
+Example:
+
+```blade
+<x-brave::nav aria-label="Main navigation">
+    <x-brave::nav.list>
+        <x-brave::nav.item>
+            <x-brave::nav.link href="/contact" :active="true">
+                First item
+            </x-brave::nav.link>
+        </x-brave::nav.item>
+
+        <x-brave::nav.item class="group">
+            <x-brave::nav.link href="#" :hasChildren="true">
+                Dropdown
+            </x-brave::nav.link>
+
+            {{-- Change mode via data-mode="hover" --}}
+            <x-brave::nav.dropdown data-mode="hover"
+                @class([
+                    'invisible absolute bg-white',
+                    'group-has-aria-expanded:visible',
+                ])
+            >
+                <x-brave::nav.item>
+                    <x-brave::nav.link href="/contact">
+                        Dropdown item 1
+                    </x-brave::nav.link>
+                </x-brave::nav.item>
+
+                <x-brave::nav.item>
+                    <x-brave::nav.link href="/">
+                        Dropdown item 2
+                    </x-brave::nav.link>
+                </x-brave::nav.item>
+            </x-brave::nav.dropdown>
+        </x-brave::nav.item>
+    </x-brave::nav.list>
+</x-brave::nav>
+```
+
 ## About us
 
 [![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)
