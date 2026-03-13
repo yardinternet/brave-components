@@ -126,13 +126,52 @@ Dropdown visibility is controlled via `aria-expanded`. Use it in combination wit
 
 For accessibility, the `<x-brave::nav>` component requires an `aria-label`.
 
-Example:
+Example usage with Navi:
+
+```blade
+@php($menu = \Log1x\Navi\Navi::make()->build('primary_navigation'))
+
+@if ($menu->isNotEmpty())
+	<x-brave::nav aria-label="{{ __('Primaire navigatie', 'sage') }}">
+		<x-brave::nav.list>
+			@foreach ($primaryNavigation->all() as $item)
+				<x-brave::nav.item class="group">
+					<x-brave::nav.link :item="$item" class="text-blue-500" activeClass="text-red-500">
+						{!! $item->label !!}
+						@if ($item->children)
+							<i class="fa-light fa-chevron-down"></i>
+						@endif
+					</x-brave::nav.link>
+
+					@if ($item->children)
+						<x-brave::nav.dropdown mode="hover" @class([
+							'invisible absolute bg-white',
+							'group-has-aria-expanded:visible',
+						])>
+							@foreach ($item->children as $child)
+								<x-brave::nav.item>
+									<x-brave::nav.link :item="$child" class="text-blue-500" activeClass="text-red-500">
+										{!! $child->label !!}
+									</x-brave::nav.link>
+								</x-brave::nav.item>
+							@endforeach
+						</x-brave::nav.dropdown>
+					@endif
+				</x-brave::nav.item>
+			@endforeach
+		</x-brave::nav.list>
+	</x-brave::nav>
+@endif
+
+```
+
+Usage without Navi:
 
 ```blade
 <x-brave::nav aria-label="Main navigation">
     <x-brave::nav.list>
         <x-brave::nav.item>
-            <x-brave::nav.link href="/contact" :active="true">
+            <x-brave::nav.link href="/contact" :isActive="true" activeClass="text-red-500">
                 First item
             </x-brave::nav.link>
         </x-brave::nav.item>
@@ -143,12 +182,10 @@ Example:
             </x-brave::nav.link>
 
             {{-- Change mode via data-mode="hover" --}}
-            <x-brave::nav.dropdown data-mode="hover"
-                @class([
-                    'invisible absolute bg-white',
-                    'group-has-aria-expanded:visible',
-                ])
-            >
+            <x-brave::nav.dropdown data-mode="hover" @class([
+                'invisible absolute bg-white',
+                'group-has-aria-expanded:visible',
+            ])>
                 <x-brave::nav.item>
                     <x-brave::nav.link href="/contact">
                         Dropdown item 1
