@@ -34,10 +34,10 @@ class FeedbackForm extends Component
 		}
 
 		return GFForms::get_form(
-			$this->id,
-			$this->displayTitle,
-			$this->displayDescription,
-			$this->ajax,
+			form_id: $this->id,
+			display_title: $this->displayTitle,
+			display_description: $this->displayDescription,
+			ajax: $this->ajax,
 		);
 	}
 
