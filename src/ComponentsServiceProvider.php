@@ -13,6 +13,7 @@ use Yard\Brave\Components\Dialog;
 use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
 use Yard\Brave\Components\PatternContent;
+use Yard\Brave\Components\ReadSpeaker;
 use Yard\Brave\Components\SocialIcon;
 use Yard\Hook\Registrar;
 
@@ -24,7 +25,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, PatternContent::class, SocialIcon::class);
+			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, PatternContent::class, ReadSpeaker::class, SocialIcon::class);
 	}
 
 	public function packageBooted(): void
@@ -33,6 +34,10 @@ class ComponentsServiceProvider extends PackageServiceProvider
 
 		if (config('components.hooks.pattern_content.enabled', true)) {
 			$hooks[] = Hooks\PatternContent::class;
+		}
+
+		if (0 !== (int) config('components.readSpeaker.customerId', 0)) {
+			$hooks[] = Hooks\ReadSpeaker::class;
 		}
 
 		(new Registrar($hooks))->registerHooks();
