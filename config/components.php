@@ -31,4 +31,10 @@ return [
 			'not_found' => '404 error',
 		],
 	],
+	'readSpeaker' => [
+		'customerId' => null,
+		'readId' => 'main',
+		'disable' => '',
+		'automaticallyAddToH1' => true,
+	],
 ];

@@ -103,6 +103,16 @@ Usage:
 
 Configure the admin behavior of each pattern in the `components.php` config file to automatically save them as drafts (thus hiding them from the pattern inserter), prevent their deletion, and add custom labels in the admin view.
 
+### Read Speaker
+
+Adds a ReadSpeaker button on specific places with the component and automatically adds it to the content of H1 blocks in the post content. Make sure to configure the `readSpeaker` settings in the `components.php` config file to set your customer ID and other options.
+
+Usage:
+
+```blade
+<x-brave-read-speaker />
+```
+
 ## About us
 
 [![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)
