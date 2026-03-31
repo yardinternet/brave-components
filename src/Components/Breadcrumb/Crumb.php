@@ -85,19 +85,8 @@ class Crumb
 		}
 
 		if (is_page()) {
-			$ancestors = collect(
-				get_ancestors(get_the_ID(), 'page')
-			)->reverse();
-
-			if ($ancestors->isNotEmpty()) {
-				$ancestors->each(function ($item) {
-					$this->add(
-						get_the_title($item),
-						get_permalink((int)$item),
-						(int)$item
-					);
-				});
-			}
+			$ancestors = $this->getAncestors(get_the_ID(), 'page');
+			$this->addCrumbsCollection($ancestors);
 
 			$this->add(
 				get_the_title(),
@@ -256,16 +245,10 @@ class Crumb
 
 		if (! empty($type)) {
 			$parentItems = $this->getParentItems(get_the_ID());
+			$this->addCrumbsCollection($parentItems);
 
-			if ($parentItems->isNotEmpty()) {
-				$parentItems->map(function ($item) {
-					$this->add(
-						$item['label'],
-						$item['url'],
-						$item['id']
-					);
-				});
-			}
+			$ancestors = $this->getAncestors(get_the_ID(), $type->name);
+			$this->addCrumbsCollection($ancestors);
 		}
 
 		$this->add(
@@ -275,6 +258,31 @@ class Crumb
 		);
 
 		return $this->breadcrumb;
+	}
+
+	private function getAncestors(int $postId, string $postType): Collection
+	{
+		return collect(
+			get_ancestors($postId, $postType)
+		)->reverse()
+			->map(fn (int $id) => [
+				'id' => $id,
+				'label' => get_the_title($id),
+				'url' => get_permalink($id),
+			]);
+	}
+
+	private function addCrumbsCollection(Collection $crumbs): void
+	{
+		if ($crumbs->isNotEmpty()) {
+			$crumbs->each(function ($item) {
+				$this->add(
+					$item['label'],
+					$item['url'],
+					$item['id']
+				);
+			});
+		}
 	}
 
 	private function getParentItems(int $postId): Collection
