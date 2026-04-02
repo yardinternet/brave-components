@@ -6,18 +6,18 @@ namespace Yard\Brave\Hooks;
 
 use Yard\Hook\Action;
 use Yard\Hook\Filter;
+use Yard\Brave\Components\ReadSpeaker as ReadSpeakerComponent;
+use Illuminate\Support\Facades\Blade;
 
 class ReadSpeaker
 {
 	private int $customerId;
-	private string $readId;
 	private string $disable;
 	private bool $automaticallyAddToH1;
 
 	public function __construct()
 	{
 		$this->customerId = (int) config('components.readSpeaker.customerId', 0);
-		$this->readId = config('components.readSpeaker.readId', 'main');
 		$this->disable = config('components.readSpeaker.disable', '');
 		$this->automaticallyAddToH1 = (bool) config('components.readSpeaker.automaticallyAddToH1', true);
 	}
@@ -56,10 +56,7 @@ class ReadSpeaker
 		}
 
 		if (isset($block['attrs']['level']) && (int) $block['attrs']['level'] === 1) {
-			return $blockContent . view('brave::components.read-speaker', [
-				'customerId' => $this->customerId,
-				'readId' => $this->readId,
-			])->render();
+			return $blockContent . Blade::renderComponent(new ReadSpeakerComponent());
 		}
 
 		return $blockContent;
