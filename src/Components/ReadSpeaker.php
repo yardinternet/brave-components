@@ -12,18 +12,29 @@ class ReadSpeaker extends Component
 {
 	public int $customerId;
 	public string $readId;
-	public string $disable;
+	public string $src = '';
 
 	public function __construct()
 	{
 		$this->customerId = (int) config('components.readSpeaker.customerId', 0);
 		$this->readId = config('components.readSpeaker.readId', 'main');
-		$this->disable = config('components.readSpeaker.disable', '');
+
+		if (0 !== $this->customerId) {
+			$this->src = add_query_arg(
+				[
+					'customerid' => $this->customerId,
+					'lang' => 'nl_nl',
+					'readid' => $this->readId,
+					'url' => rawurlencode(get_permalink()),
+				],
+				'https://app-eu.readspeaker.com/cgi-bin/rsent',
+			);
+		}
 	}
 
 	public function render(): View|Factory|string
 	{
-		if (0 === $this->customerId) {
+		if('' === $this->src) {
 			return '';
 		}
 
