@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yard\Brave\Components;
 
+use Illuminate\Support\Facades\URL;
 use Illuminate\View\Component;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
@@ -25,7 +26,7 @@ class ReadSpeaker extends Component
 					'customerid' => $this->customerId,
 					'lang' => 'nl_nl',
 					'readid' => $this->readId,
-					'url' => rawurlencode(get_permalink()),
+					'url' => URL::current(),
 				],
 				'https://app-eu.readspeaker.com/cgi-bin/rsent',
 			);
