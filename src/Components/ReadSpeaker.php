@@ -34,7 +34,7 @@ class ReadSpeaker extends Component
 
 	public function render(): View|Factory|string
 	{
-		if('' === $this->src) {
+		if ('' === $this->src) {
 			return '';
 		}
 

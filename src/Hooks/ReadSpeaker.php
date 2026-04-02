@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Yard\Brave\Hooks;
 
+use Illuminate\Support\Facades\Blade;
+use Yard\Brave\Components\ReadSpeaker as ReadSpeakerComponent;
 use Yard\Hook\Action;
 use Yard\Hook\Filter;
-use Yard\Brave\Components\ReadSpeaker as ReadSpeakerComponent;
-use Illuminate\Support\Facades\Blade;
 
 class ReadSpeaker
 {
