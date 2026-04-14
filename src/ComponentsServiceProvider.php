@@ -12,6 +12,7 @@ use Yard\Brave\Components\Breadcrumb;
 use Yard\Brave\Components\Dialog;
 use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
+use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
 use Yard\Brave\Components\SocialIcon;
@@ -25,7 +26,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, PatternContent::class, ReadSpeaker::class, SocialIcon::class);
+			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, Nav::class, PatternContent::class, ReadSpeaker::class, SocialIcon::class);
 	}
 
 	public function packageBooted(): void
