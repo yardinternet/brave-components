@@ -134,7 +134,7 @@ Example usage with Navi:
 @if ($menu->isNotEmpty())
 	<x-brave::nav aria-label="{{ __('Primaire navigatie', 'sage') }}">
 		<x-brave::nav.list>
-			@foreach ($primaryNavigation->all() as $item)
+			@foreach ($menu->all() as $item)
 				<x-brave::nav.item class="group">
 					<x-brave::nav.link :item="$item" class="text-blue-500" activeClass="text-red-500">
 						{!! $item->label !!}

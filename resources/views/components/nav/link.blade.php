@@ -9,12 +9,12 @@
 @php
 	$hasChildren = $hasChildren ?? !empty($item?->children);
 
-    $href = $item->url ?? $href;
-    $label = $slot ?? $item->label ?? '';
+    $href = $item?->url ?? $href;
+    $label = !$slot->isEmpty() ? $slot : ($item?->label ?? '');
 
     $isActive = $isActive
-    || ($item->active ?? false)
-    || ($item->activeParent ?? false);
+    || ($item?->active ?? false)
+    || ($item?->activeParent ?? false);
 
     $baseAttributes = $attributes
         ->class([
@@ -22,7 +22,7 @@
 			'brave-nav-link-has-children' => $hasChildren,
             'brave-nav-link-is-active' => $isActive,
             $activeClass => $isActive && $activeClass,
-            $item->classes ?? null,
+            $item?->classes ?? null,
         ])
         ->merge([
             'aria-current' => $isActive ? 'page' : null,
