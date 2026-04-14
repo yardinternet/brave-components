@@ -181,8 +181,8 @@ Usage without Navi:
                 Dropdown
             </x-brave::nav.link>
 
-            {{-- Change mode via data-mode="hover" --}}
-            <x-brave::nav.dropdown data-mode="hover" @class([
+            {{-- Change mode via mode="hover" --}}
+            <x-brave::nav.dropdown mode="hover" @class([
                 'invisible absolute bg-white',
                 'group-has-aria-expanded:visible',
             ])>
