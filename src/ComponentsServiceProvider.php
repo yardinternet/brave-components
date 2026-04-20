@@ -16,6 +16,7 @@ use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
 use Yard\Brave\Components\SocialIcon;
+use Yard\Brave\Components\Tooltip;
 use Yard\Hook\Registrar;
 
 class ComponentsServiceProvider extends PackageServiceProvider
@@ -26,7 +27,20 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			->name('components')
 			->hasConfigFile()
 			->hasViews('brave')
-			->hasViewComponents('brave', Accordion::class, BackButton::class, Breadcrumb::class, Dialog::class, FeedbackForm::class,  ImgFocalPoint::class, Nav::class, PatternContent::class, ReadSpeaker::class, SocialIcon::class);
+			->hasViewComponents(
+				'brave',
+				Accordion::class,
+				BackButton::class,
+				Breadcrumb::class,
+				Dialog::class,
+				FeedbackForm::class,
+				ImgFocalPoint::class,
+				Nav::class,
+				PatternContent::class,
+				ReadSpeaker::class,
+				SocialIcon::class,
+				Tooltip::class
+			);
 	}
 
 	public function packageBooted(): void
