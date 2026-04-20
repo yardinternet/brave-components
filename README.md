@@ -132,35 +132,35 @@ Example usage with Navi:
 @php($menu = \Log1x\Navi\Navi::make()->build('primary_navigation'))
 
 @if ($menu->isNotEmpty())
-	<x-brave::nav aria-label="{{ __('Primaire navigatie', 'sage') }}">
-		<x-brave::nav.list>
-			@foreach ($menu->all() as $item)
-				<x-brave::nav.item class="group">
-					<x-brave::nav.link :item="$item" class="text-blue-500" activeClass="text-red-500">
-						{!! $item->label !!}
-						@if ($item->children)
-							<i class="fa-light fa-chevron-down"></i>
-						@endif
-					</x-brave::nav.link>
+    <x-brave::nav aria-label="{{ __('Primaire navigatie', 'sage') }}">
+        <x-brave::nav.list>
+            @foreach ($menu->all() as $item)
+                <x-brave::nav.item class="group">
+                    <x-brave::nav.link :item="$item" class="text-blue-500" activeClass="text-red-500">
+                        {!! $item->label !!}
+                        @if ($item->children)
+                            <i class="fa-light fa-chevron-down"></i>
+                        @endif
+                    </x-brave::nav.link>
 
-					@if ($item->children)
-						<x-brave::nav.dropdown mode="hover" @class([
-							'invisible absolute bg-white',
-							'group-has-aria-expanded:visible',
-						])>
-							@foreach ($item->children as $child)
-								<x-brave::nav.item>
-									<x-brave::nav.link :item="$child" class="text-blue-500" activeClass="text-red-500">
-										{!! $child->label !!}
-									</x-brave::nav.link>
-								</x-brave::nav.item>
-							@endforeach
-						</x-brave::nav.dropdown>
-					@endif
-				</x-brave::nav.item>
-			@endforeach
-		</x-brave::nav.list>
-	</x-brave::nav>
+                    @if ($item->children)
+                        <x-brave::nav.dropdown mode="hover" @class([
+                            'invisible absolute bg-white',
+                            'group-has-aria-expanded:visible',
+                        ])>
+                            @foreach ($item->children as $child)
+                                <x-brave::nav.item>
+                                    <x-brave::nav.link :item="$child" class="text-blue-500" activeClass="text-red-500">
+                                        {!! $child->label !!}
+                                    </x-brave::nav.link>
+                                </x-brave::nav.item>
+                            @endforeach
+                        </x-brave::nav.dropdown>
+                    @endif
+                </x-brave::nav.item>
+            @endforeach
+        </x-brave::nav.list>
+    </x-brave::nav>
 @endif
 
 ```
@@ -201,6 +201,19 @@ Usage without Navi:
         </x-brave::nav.item>
     </x-brave::nav.list>
 </x-brave::nav>
+```
+
+### Tooltip
+
+Usage:
+
+```blade
+<x-brave::tooltip.trigger id="my-tooltip-trigger" ariaDescribedby="my-tooltip">
+    Hover or focus me
+</x-brave::tooltip.trigger>
+<x-brave::tooltip id="my-tooltip">
+    This is the tooltip content.
+</x-brave::tooltip>
 ```
 
 ## About us
