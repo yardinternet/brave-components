@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Yard\Brave\Components\Breadcrumb;
 
 use Illuminate\Support\Collection;
+use Yard\Brave\Components\Traits\ParentPage;
 
 /**
  * Inspired by Log1x/crumb, slightly adjusted.
@@ -13,6 +14,8 @@ use Illuminate\Support\Collection;
  */
 class Crumb
 {
+	use ParentPage;
+
 	/**
 	 * The breadcrumb configuration.
 	 */
@@ -295,29 +298,5 @@ class Crumb
 				'label' => get_the_title($id),
 				'url' => get_permalink($id),
 			]);
-	}
-
-	private function getParentPagesIds(int $postId): array
-	{
-		if (! $this->hasParentPage($postId)) {
-			return [];
-		}
-
-		$postType = get_post_type($postId);
-		$supports = get_all_post_type_supports($postType);
-		$parentPageSlug = $supports['parent-page'][0]['slug'] ?? get_post_type_object($postType)->rewrite['slug'] ?? null;
-		$parent = $parentPageSlug ? get_page_by_path($parentPageSlug) : null;
-
-		if (! $parent) {
-			return [];
-		}
-		$ancestors = get_post_ancestors($parent->ID);
-
-		return [$parent->ID, ...$ancestors];
-	}
-
-	private function hasParentPage(int $postId): bool
-	{
-		return post_type_supports(get_post_type($postId), 'parent-page');
 	}
 }
