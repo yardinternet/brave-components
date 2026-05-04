@@ -249,9 +249,6 @@ class Crumb
 		if (! empty($type)) {
 			$parentItems = $this->getParentItems(get_the_ID());
 			$this->addCrumbsCollection($parentItems);
-
-			$ancestors = $this->getAncestors(get_the_ID(), $type->name);
-			$this->addCrumbsCollection($ancestors);
 		}
 
 		$this->add(
@@ -290,9 +287,10 @@ class Crumb
 
 	private function getParentItems(int $postId): Collection
 	{
-		$parentIds = $this->getParentPagesIds($postId);
+		$parentIds = $this->getParentIds($postId);
 
-		return collect(array_reverse($parentIds))
+		return collect($parentIds)
+			->reverse()
 			->map(fn (int $id) => [
 				'id' => $id,
 				'label' => get_the_title($id),
