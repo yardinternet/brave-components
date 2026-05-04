@@ -8,9 +8,11 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 use WP_Post;
+use Yard\Brave\Components\Traits\ParentPage;
 
 class BackButton extends Component
 {
+	use ParentPage;
 	public string $link = 'javascript:history.back();';
 	public string $text = 'Terug';
 	public string $align = '';
@@ -61,10 +63,9 @@ class BackButton extends Component
 
 	private function setLinkToPostTypeParent(WP_Post $post): void
 	{
-		$postType = get_post_type($post->ID);
-		$parentPageSlug = is_string($postType) ? get_all_post_type_supports($postType)['parent-page'][0]['slug'] ?? '' : '';
+		$parentPageSlug = $this->getParentPageSlug($post->ID);
 
-		if ('' !== $parentPageSlug) {
+		if (null !== $parentPageSlug) {
 			$this->link = home_url($parentPageSlug);
 			$this->text = 'Terug naar overzicht';
 		}
