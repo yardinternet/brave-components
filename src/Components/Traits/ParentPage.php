@@ -45,6 +45,7 @@ trait ParentPage
 
 		$postType = get_post_type($postId);
 		$supports = get_all_post_type_supports($postType);
+
 		return $supports['parent-page'][0]['slug'] ?? get_post_type_object($postType)->rewrite['slug'] ?? null;
 	}
 }
