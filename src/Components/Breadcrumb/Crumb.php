@@ -251,11 +251,13 @@ class Crumb
 			$this->addCrumbsCollection($parentItems);
 		}
 
-		$this->add(
-			get_the_title(),
-			null,
-			get_the_ID()
-		);
+		if (($postId = get_the_ID()) !== false) {
+			$this->add(
+				get_the_title(),
+				null,
+				$postId
+			);
+		}
 
 		return $this->breadcrumb;
 	}
