@@ -251,7 +251,7 @@ class Crumb
 			$this->addCrumbsCollection($parentItems);
 		}
 
-		if (($postId = get_the_ID()) !== false) {
+		if (false !== ($postId = get_the_ID())) {
 			$this->add(
 				get_the_title(),
 				null,
