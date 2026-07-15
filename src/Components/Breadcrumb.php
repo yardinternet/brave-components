@@ -19,7 +19,14 @@ class Breadcrumb extends Component
 		public ?string $currentItemClass = '',
 		public ?Collection $items = null,
 	) {
-		$this->items = $this->items->isNotEmpty() ? $this->items : $this->items();
+		$items = $this->items->isNotEmpty() ? $this->items : $this->items();
+
+		/**
+		 * Filter the breadcrumb items before rendering.
+		 *
+		 * @param Collection $items Crumbs shaped as ['id' => ?int, 'label' => string, 'url' => ?string].
+		 */
+		$this->items = Collection::make(apply_filters('yard::brave-components/breadcrumb/items', $items));
 	}
 
 	public function render(): Factory|View
