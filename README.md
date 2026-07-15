@@ -72,6 +72,14 @@ Or pass your own collection of items to show a custom breadcrumb:
 ])" />
 ```
 
+The items can be modified before rendering through the `yard::brave-components/breadcrumb/items` filter. Each item is shaped as `['id' => ?int, 'label' => string, 'url' => ?string]`:
+
+```php
+add_filter('yard::brave-components/breadcrumb/items', function (Collection $items): Collection {
+    return $items->reject(fn (array $item) => $item['label'] === 'Home');
+});
+```
+
 ### Dialog
 
 Usage:

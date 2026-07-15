@@ -19,7 +19,7 @@ class Breadcrumb extends Component
 		public ?string $currentItemClass = '',
 		public ?Collection $items = null,
 	) {
-		$items = $this->items->isNotEmpty() ? $this->items : $this->items();
+		$items = $this->items?->isNotEmpty() ? $this->items : $this->items();
 
 		/**
 		 * Filter the breadcrumb items before rendering.
