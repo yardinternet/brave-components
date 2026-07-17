@@ -26,7 +26,7 @@ class ReadSpeaker extends Component
 					'customerid' => $this->customerId,
 					'lang' => 'nl_nl',
 					'readid' => $this->readId,
-					'url' => URL::current(),
+					'url' => URL::full(),
 				],
 				'https://app-eu.readspeaker.com/cgi-bin/rsent',
 			);
