@@ -14,6 +14,12 @@ class Tolkie
 	{
 		wp_print_script_tag([
 			...config('components.tolkie'),
+			'class' => 'tolkieIntegrationScript',
+			'id' => 'tolkie-script',
+			'type' => 'module',
+			'src' => 'https://app.tolkie.nl/',
+			'crossorigin' => 'anonymous',
+			'defer' => '',
 			'data-tolkie-token' => config('tolkie.token'),
 		]);
 	}
