@@ -13,7 +13,9 @@ class Tolkie
 	public function addTolkieScript(): void
 	{
 		wp_print_script_tag([
-			...config('components.tolkie.html_attributes'),
+			...config('components.tolkie.html_attributes', [
+				'data-tolkie-state' => 'separateButtons',
+			]),
 			'class' => 'tolkieIntegrationScript',
 			'id' => 'tolkie-script',
 			'type' => 'module',
@@ -28,11 +30,8 @@ class Tolkie
 	#[Filter('render_block_core/post-title')]
 	public function addTolkieTag(string $content, array $block): string
 	{
-		if (! config('components.tolkie.automatically_add_to_h1', true)) {
-			return $content;
-		}
-
-		$content .= '<div class="tolkie-buttons-afterbegin"></div>';
+		if (config('components.tolkie.automatically_add_to_h1', true) && 1 === ($block['attrs']['level'] ?? 0))
+			$content .= '<div class="tolkie-buttons-afterbegin"></div>';
 
 		return $content;
 	}

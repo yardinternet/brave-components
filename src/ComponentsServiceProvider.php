@@ -58,6 +58,10 @@ class ComponentsServiceProvider extends PackageServiceProvider
 		}
 
 		if ('' !== config('components.tolkie.token', '')) {
+
+//			dd(config('components.tolkie.token'), config('components.tolkie.automatically_add_to_h1'), [...config('components.tolkie.html_attributes', [
+//				'data-tolkie-state' => 'separateButtons',
+//			]),]);
 			$hooks[] = Hooks\Tolkie::class;
 		}
 
