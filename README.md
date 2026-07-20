@@ -113,6 +113,24 @@ Usage:
 <x-brave-read-speaker />
 ```
 
+### Tolkie
+
+Enqueues the Tolkie script and adds the button placeholder. 
+It [automatically](./src/Hooks/Tolkie.php) adds a placeholder bellow every `H1` heading. 
+
+Usage:
+
+1. Create a Tolkie config
+    ```
+    return [
+        'token' => env('TOLKIE_TOKEN', ''),
+    ];
+   ```
+2. If needed add the button placeholder component to the templates 
+    ```blade
+    <x-brave-tolkie />
+    ```
+
 ### Nav
 
 Navigation component with optional dropdowns. Provides the right ARIA attributes and keyboard navigation for accessibility.
