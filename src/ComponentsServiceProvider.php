@@ -55,6 +55,10 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			$hooks[] = Hooks\ReadSpeaker::class;
 		}
 
+		if ('' !== config('tolkie.token', '')) {
+			$hooks[] = Hooks\Tolkie::class;
+		}
+
 		(new Registrar($hooks))->registerHooks();
 	}
 }
