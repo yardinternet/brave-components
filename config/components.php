@@ -21,7 +21,7 @@ return [
 			],
 		],
 	],
-	'feedbackFormId' => env('FEEDBACK_FORM_ID', ''),
+	'feedback_form_id' => env('FEEDBACK_FORM_ID', ''),
 	'breadcrumb' => [
 		'labels' => [
 			'home' => 'Home',

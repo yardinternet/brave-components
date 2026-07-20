@@ -19,7 +19,7 @@ class FeedbackForm extends Component
 		public bool $displayDescription = false,
 		public bool $ajax = true,
 	) {
-		$this->id = (int) config('components.feedbackFormId');
+		$this->id = (int) config('components.feedback_form_id', config('components.feedbackFormId'));
 		$this->form = $this->getFeedbackForm();
 	}
 
