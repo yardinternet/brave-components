@@ -130,7 +130,8 @@ Usage:
         ],
     ];
    ```
-2. If needed add the button placeholder component to the templates 
+2. Make sure the Tolkie scripts are allowed by the [Content Security Policy](https://github.com/yardinternet/brave-csp/blob/main/src/Basic.php#L254)
+3. If needed add the button placeholder component to the templates 
     ```blade
     <x-brave-tolkie />
     ```
