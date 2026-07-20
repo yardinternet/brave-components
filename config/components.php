@@ -35,7 +35,7 @@ return [
 		'customerId' => null,
 		'readId' => 'main',
 		'disable' => '',
-		'automaticallyAddToH1' => true,
+		'automatically_add_to_h1' => true,
 	],
 	'tolkie' => [
 		'token' => null,
