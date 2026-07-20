@@ -13,14 +13,8 @@ class Tolkie
 	public function addTolkieScript(): void
 	{
 		wp_print_script_tag([
-			'class' => 'tolkieIntegrationScript',
-			'id' => 'tolkie-script',
-			'type' => 'module',
-			'src' => 'https://app.tolkie.nl/',
-			'crossorigin' => 'anonymous',
+			...config('components.tolkie'),
 			'data-tolkie-token' => config('tolkie.token'),
-			'data-tolkie-state' => 'separateButtons',
-			'defer' => '',
 		]);
 	}
 
