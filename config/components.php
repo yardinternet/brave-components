@@ -31,7 +31,7 @@ return [
 			'not_found' => '404 error',
 		],
 	],
-	'readSpeaker' => [
+	'read_speaker' => [
 		'customer_id' => null,
 		'read_id' => 'main',
 		'disable' => '',
