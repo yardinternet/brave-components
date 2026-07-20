@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yard\Brave\Hooks;
 
 use Yard\Hook\Action;
@@ -27,6 +29,7 @@ class Tolkie
 	public function addTolkieTag(string $content, array $block): string
 	{
 		$content .= '<div class="tolkie-buttons-afterbegin"></div>';
+
 		return $content;
 	}
 }
