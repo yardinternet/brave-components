@@ -13,14 +13,14 @@ class Tolkie
 	public function addTolkieScript(): void
 	{
 		wp_print_script_tag([
-			...config('components.tolkie'),
+			...config('components.tolkie.html_attributes'),
 			'class' => 'tolkieIntegrationScript',
 			'id' => 'tolkie-script',
 			'type' => 'module',
 			'src' => 'https://app.tolkie.nl/',
 			'crossorigin' => 'anonymous',
 			'defer' => '',
-			'data-tolkie-token' => config('tolkie.token'),
+			'data-tolkie-token' => config('components.tolkie.token'),
 		]);
 	}
 
@@ -28,8 +28,10 @@ class Tolkie
 	#[Filter('render_block_core/post-title')]
 	public function addTolkieTag(string $content, array $block): string
 	{
-		$content .= '<div class="tolkie-buttons-afterbegin"></div>';
+		if (!config('components.tolkie.automatically_add_to_h1', true))
+			return $content;
 
+		$content .= '<div class="tolkie-buttons-afterbegin"></div>';
 		return $content;
 	}
 }
