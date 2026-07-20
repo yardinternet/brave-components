@@ -133,10 +133,10 @@ Usage:
 
 If needed you can configure the Tolkie script in the config. Every attribute you would normally add in `wp_print_script_tag()` can be added here.
 
-Lets say you want to change the `src`:
+Lets say you want to add a new `data` attribute:
 ```
 'tolkie' => [
-    'src' => 'https://tolkie-facade-url.nl',
+    'data-tolkie-new-option' => 'new-value',
     'data-tolkie-state' => 'separateButtons',
 ],
 ```
