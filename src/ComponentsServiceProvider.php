@@ -16,6 +16,7 @@ use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
 use Yard\Brave\Components\SocialIcon;
+use Yard\Brave\Components\Tolkie;
 use Yard\Brave\Components\Tooltip;
 use Yard\Hook\Registrar;
 
@@ -39,7 +40,8 @@ class ComponentsServiceProvider extends PackageServiceProvider
 				PatternContent::class,
 				ReadSpeaker::class,
 				SocialIcon::class,
-				Tooltip::class
+				Tooltip::class,
+				Tolkie::class
 			);
 	}
 
