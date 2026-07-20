@@ -17,8 +17,9 @@ class ReadSpeaker extends Component
 
 	public function __construct()
 	{
-		$this->customerId = (int) config('components.readSpeaker.customerId', 0);
-		$this->readId = config('components.readSpeaker.readId', 'main');
+		$this->customerId = (int) config('components.readSpeaker.customer_id', config('components.readSpeaker.customerId', 0));
+		// use old config names as fallback for backwards-compatibility
+		$this->readId = config('components.readSpeaker.read_id', config('components.readSpeaker.readId', 'main'));
 
 		if (0 !== $this->customerId) {
 			$this->src = add_query_arg(
