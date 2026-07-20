@@ -42,6 +42,6 @@ return [
 		'automatically_add_to_h1' => true,
 		'html_attributes' => [
 			'data-tolkie-state' => 'separateButtons',
-		]
+		],
 	],
 ];
