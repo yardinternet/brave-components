@@ -32,8 +32,8 @@ return [
 		],
 	],
 	'readSpeaker' => [
-		'customerId' => null,
-		'readId' => 'main',
+		'customer_id' => null,
+		'read_id' => 'main',
 		'disable' => '',
 		'automatically_add_to_h1' => true,
 	],
