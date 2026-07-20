@@ -131,6 +131,16 @@ Usage:
     <x-brave-tolkie />
     ```
 
+If needed you can configure the Tolkie script in the config. Every attribute you would normally add in `wp_print_script_tag()` can be added here.
+
+Lets say you want to change the `src`:
+```
+'tolkie' => [
+    'src' => 'https://tolkie-facade-url.nl',
+    'data-tolkie-state' => 'separateButtons',
+],
+```
+
 ### Nav
 
 Navigation component with optional dropdowns. Provides the right ARIA attributes and keyboard navigation for accessibility.
