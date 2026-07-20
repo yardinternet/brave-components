@@ -19,7 +19,10 @@ class ReadSpeaker
 	{
 		$this->customerId = (int) config('components.readSpeaker.customerId', 0);
 		$this->disable = config('components.readSpeaker.disable', '');
-		$this->automaticallyAddToH1 = (bool) config('components.readSpeaker.automaticallyAddToH1', true);
+		// use 'automaticallyAddToH1' as fallback for backwards-compatibility
+		$this->automaticallyAddToH1 = (bool) config('components.readSpeaker.automatically_add_to_h1', config('components.readSpeaker.automaticallyAddToH1', true));
+
+		dd($this->automaticallyAddToH1);
 	}
 
 	/**
