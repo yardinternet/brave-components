@@ -120,10 +120,14 @@ It [automatically](./src/Hooks/Tolkie.php) adds a placeholder bellow every `H1` 
 
 Usage:
 
-1. Create a Tolkie config
+1. Add the Tolkie token to the config
     ```
     return [
-        'token' => env('TOLKIE_TOKEN', ''),
+        ...
+   
+        'tolkie' => [
+            'token' => 'yourtokenhere',
+        ],
     ];
    ```
 2. If needed add the button placeholder component to the templates 
@@ -136,8 +140,10 @@ If needed you can configure the Tolkie script in the config. Every attribute you
 Lets say you want to add a new `data` attribute:
 ```
 'tolkie' => [
-    'data-tolkie-new-option' => 'new-value',
-    'data-tolkie-state' => 'separateButtons',
+    'html_attributes' => [
+        'data-tolkie-new-option' => 'new-value',
+        'data-tolkie-state' => 'separateButtons',
+    ]
 ],
 ```
 

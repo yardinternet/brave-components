@@ -38,6 +38,10 @@ return [
 		'automaticallyAddToH1' => true,
 	],
 	'tolkie' => [
-		'data-tolkie-state' => 'separateButtons',
+		'token' => null,
+		'automatically_add_to_h1' => true,
+		'html_attributes' => [
+			'data-tolkie-state' => 'separateButtons',
+		]
 	],
 ];
