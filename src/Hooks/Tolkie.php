@@ -24,9 +24,9 @@ class Tolkie
 
 	#[Filter('render_block_core/heading')]
 	#[Filter('render_block_core/post-title')]
-	public function addTolkieMarker(string $content, array $block): string
+	public function addTolkieTag(string $content, array $block): string
 	{
-		$content .= '<div class="yard-blocks-tolkie | tolkie-buttons-afterbegin"></div>';
+		$content .= '<div class="tolkie-buttons-afterbegin"></div>';
 		return $content;
 	}
 }
