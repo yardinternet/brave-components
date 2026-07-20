@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Yard\Brave\Components;
 
 use Illuminate\Contracts\View\Factory;
