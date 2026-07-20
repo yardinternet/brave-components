@@ -37,4 +37,13 @@ return [
 		'disable' => '',
 		'automaticallyAddToH1' => true,
 	],
+	'tolkie' => [
+		'class' => 'tolkieIntegrationScript',
+		'id' => 'tolkie-script',
+		'type' => 'module',
+		'src' => 'https://app.tolkie.nl/',
+		'crossorigin' => 'anonymous',
+		'data-tolkie-state' => 'separateButtons',
+		'defer' => '',
+	],
 ];
