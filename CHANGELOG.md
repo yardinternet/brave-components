@@ -4,6 +4,7 @@
 
 -   Change: renamed config keys to snake_case (`feedback_form_id`, `read_speaker.customer_id`, `read_speaker.read_id`, `read_speaker.automatically_add_to_h1`), with backwards-compatible fallback to the old camelCase names
 -   Fix: handle null Tolkie token configuration
+-   Chore: add release GitHub workflow
 
 ## [1.7.1] - 2026-07-22
 
