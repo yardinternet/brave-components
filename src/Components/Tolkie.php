@@ -10,8 +10,12 @@ use Illuminate\View\View;
 
 class Tolkie extends Component
 {
-	public function render(): Factory|View
+	public function render(): Factory|View|string
 	{
+		if ('' === (string) config('components.tolkie.token', '')) {
+			return '';
+		}
+
 		return view('brave::components.tolkie');
 	}
 }
