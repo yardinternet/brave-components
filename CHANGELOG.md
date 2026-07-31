@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.7.3] - 2026-07-31
+
+-   Fix: add token check to tolkie component
+
 ## [1.7.2] - 2026-07-30
 
 -   Change: renamed config keys to snake_case (`feedback_form_id`, `read_speaker.customer_id`, `read_speaker.read_id`, `read_speaker.automatically_add_to_h1`), with backwards-compatible fallback to the old camelCase names
