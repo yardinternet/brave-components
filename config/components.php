@@ -36,7 +36,7 @@ return [
 		'read_id' => 'main',
 		'disable' => '',
 		'automatically_add_to_h1' => true,
-		'h1_position' => 'before', // 'before' or 'after'
+		'h1_position' => 'after', // 'before' or 'after'
 	],
 	'tolkie' => [
 		'token' => null,
