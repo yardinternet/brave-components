@@ -53,7 +53,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			$hooks[] = Hooks\PatternContent::class;
 		}
 
-		if (0 !== (int) config('components.read_speaker.customer_id', config('components.readSpeaker.customerId', 0))) {
+		if (0 !== (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0))) {
 			$hooks[] = Hooks\ReadSpeaker::class;
 		}
 
