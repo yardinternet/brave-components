@@ -11,9 +11,13 @@ use Yard\Hook\Filter;
 
 class ReadSpeaker
 {
+	public const POSITION_BEFORE = 'before';
+	public const POSITION_AFTER = 'after';
+
 	private int $customerId;
 	private string $disable;
 	private bool $automaticallyAddToH1;
+	private string $h1Position;
 
 	public function __construct()
 	{
@@ -21,6 +25,9 @@ class ReadSpeaker
 		$this->customerId = (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0));
 		$this->disable = config('components.read_speaker.disable', config('components.readSpeaker.disable', ''));
 		$this->automaticallyAddToH1 = (bool) config('components.read_speaker.automatically_add_to_h1', config('components.readSpeaker.automaticallyAddToH1', true));
+		$this->h1Position = self::POSITION_BEFORE === config('components.read_speaker.h1_position')
+			? self::POSITION_BEFORE
+			: self::POSITION_AFTER;
 	}
 
 	/**
@@ -46,7 +53,8 @@ class ReadSpeaker
 	}
 
 	/**
-	 * Add the ReadSpeaker button partial to H1's
+	 * Add the ReadSpeaker button partial to H1's, either before or after the
+	 * heading depending on the h1_position config value.
 	 */
 	#[Filter('render_block_core/heading')]
 	#[Filter('render_block_core/post-title')]
@@ -57,7 +65,11 @@ class ReadSpeaker
 		}
 
 		if (isset($block['attrs']['level']) && (int) $block['attrs']['level'] === 1) {
-			return $blockContent . Blade::renderComponent(new ReadSpeakerComponent());
+			$button = Blade::renderComponent(new ReadSpeakerComponent());
+
+			return self::POSITION_BEFORE === $this->h1Position
+				? $button . $blockContent
+				: $blockContent . $button;
 		}
 
 		return $blockContent;

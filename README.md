@@ -113,12 +113,21 @@ Configure the admin behavior of each pattern in the `components.php` config file
 
 ### Read Speaker
 
-Adds a ReadSpeaker button on specific places with the component and automatically adds it to the content of H1 blocks in the post content. Make sure to configure the `readSpeaker` settings in the `components.php` config file to set your customer ID and other options.
+Adds a ReadSpeaker button on specific places with the component and automatically adds it to the content of H1 blocks in the post content. Make sure to configure the `read_speaker` settings in the `components.php` config file to set your customer ID and other options.
 
 Usage:
 
 ```blade
 <x-brave-read-speaker />
+```
+
+Set `h1_position` to `before` to render the button above the heading instead of below it. It defaults to `after`.
+
+```php
+'read_speaker' => [
+    'automatically_add_to_h1' => true,
+    'h1_position' => 'before',
+],
 ```
 
 ### Tolkie
