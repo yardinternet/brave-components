@@ -18,7 +18,7 @@ class ReadSpeaker
 	public function __construct()
 	{
 		// use old config names as fallback for backwards-compatibility
-		$this->customerId = (int) config('components.read_speaker.customer_id', config('components.readSpeaker.customerId', 0));
+		$this->customerId = (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0));
 		$this->disable = config('components.read_speaker.disable', config('components.readSpeaker.disable', ''));
 		$this->automaticallyAddToH1 = (bool) config('components.read_speaker.automatically_add_to_h1', config('components.readSpeaker.automaticallyAddToH1', true));
 	}
