@@ -35,9 +35,9 @@ return [
 		'automatically_add_to_h1' => true,
 		'customer_id' => null,
 		'disable' => '',
-		'h1_position' => 'after', // 'before' or 'after',
+		'h1_position' => 'after', // 'before' or 'after'
 		'read_id' => 'main',
-		'show_summary' => false, // shows the 'Eenvoudige tekst' button, this is a paid version
+		'show_summary' => false, // shows the 'Eenvoudige tekst' button, this is a paid feature
 	],
 	'tolkie' => [
 		'token' => null,

@@ -10,7 +10,7 @@
 		<span class="rsbtn_left rsimg rspart"><span class="rsbtn_text"><span>Lees voor</span></span></span>
 		<span class="rsbtn_right rsimg rsplay rspart"></span>
 	</a>
-	@if($showSummary())
+	@if ($showSummary())
 		<div class="rs-summary-container"></div>
 	@endif
 </div>
