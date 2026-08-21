@@ -32,11 +32,12 @@ return [
 		],
 	],
 	'read_speaker' => [
-		'customer_id' => null,
-		'read_id' => 'main',
-		'disable' => '',
 		'automatically_add_to_h1' => true,
-		'h1_position' => 'after', // 'before' or 'after'
+		'customer_id' => null,
+		'disable' => '',
+		'h1_position' => 'after', // 'before' or 'after',
+		'read_id' => 'main',
+		'show_summary' => false, // shows the 'Eenvoudige tekst' button, this is a paid version
 	],
 	'tolkie' => [
 		'token' => null,

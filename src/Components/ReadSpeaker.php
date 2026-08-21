@@ -42,4 +42,9 @@ class ReadSpeaker extends Component
 
 		return view('brave::components.read-speaker');
 	}
+
+	public function showSummary(): bool
+	{
+		return true === config('components.read_speaker.show_summary', false);
+	}
 }
