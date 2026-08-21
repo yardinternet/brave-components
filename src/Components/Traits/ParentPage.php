@@ -12,9 +12,11 @@ trait ParentPage
 		$parentIds = [];
 
 		if (is_post_type_hierarchical($postType) && has_post_parent($postID)) {
-			$parentIds = get_post_ancestors($postID);
-		} elseif ($this->hasParentPage($postID)) {
-			$parentIds = $this->getParentPagesIds($postID);
+			$parentIds = array_merge($parentIds, get_post_ancestors($postID));
+		}
+
+		if ($this->hasParentPage($postID)) {
+			$parentIds = array_merge($parentIds, $this->getParentPagesIds($postID));
 		}
 
 		return $parentIds;
