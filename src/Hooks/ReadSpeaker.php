@@ -46,12 +46,15 @@ class ReadSpeaker
 			$baseUrl
 		);
 
+		if (env('WP_ENV') !== 'production') {
+			wp_print_inline_script_tag('window.rsConf = { general: { usePost: true } };');
+		}
+
 		wp_print_inline_script_tag('', [
 			'id' => 'readspeaker-script',
 			'src' => $src,
 		]);
 	}
-
 	/**
 	 * Add the ReadSpeaker button partial to H1's, either before or after the
 	 * heading depending on the h1_position config value.
