@@ -46,10 +46,7 @@ class ReadSpeaker
 			$baseUrl
 		);
 
-		if (env('WP_ENV') !== 'production') {
-			wp_print_inline_script_tag('window.rsConf = { general: { usePost: true } };');
-		}
-
+		wp_print_inline_script_tag('window.rsConf = { general: { usePost: true } };');
 		wp_print_inline_script_tag('', [
 			'id' => 'readspeaker-script',
 			'src' => $src,
