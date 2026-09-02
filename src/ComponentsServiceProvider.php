@@ -15,6 +15,7 @@ use Yard\Brave\Components\ImgFocalPoint;
 use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
+use Yard\Brave\Components\ReadSpeakerPostTitle;
 use Yard\Brave\Components\SocialIcon;
 use Yard\Brave\Components\Tolkie;
 use Yard\Brave\Components\Tooltip;
@@ -39,6 +40,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 				Nav::class,
 				PatternContent::class,
 				ReadSpeaker::class,
+				ReadSpeakerPostTitle::class,
 				SocialIcon::class,
 				Tooltip::class,
 				Tolkie::class
