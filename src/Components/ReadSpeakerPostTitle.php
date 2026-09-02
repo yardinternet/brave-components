@@ -7,7 +7,6 @@ namespace Yard\Brave\Components;
 use Illuminate\View\Component;
 use Illuminate\View\Factory;
 use Illuminate\View\View;
-use Yard\Brave\Hooks\ReadSpeaker as ReadSpeakerHook;
 
 class ReadSpeakerPostTitle extends Component
 {
