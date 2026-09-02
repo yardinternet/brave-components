@@ -5,6 +5,8 @@
 [![Tests](https://github.com/yardinternet/brave-components/actions/workflows/run-tests.yml/badge.svg?no-cache)](https://github.com/yardinternet/brave-components/actions/workflows/run-tests.yml)
 [![Code Coverage Badge](https://github.com/yardinternet/brave-components/blob/badges/coverage.svg)](https://github.com/yardinternet/brave-components/actions/workflows/badges.yml)
 [![Lines of Code Badge](https://github.com/yardinternet/brave-components/blob/badges/lines-of-code.svg)](https://github.com/yardinternet/brave-components/actions/workflows/badges.yml)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/yard/brave-components/php)
+![Packagist Dependency Version](https://img.shields.io/packagist/dependency-v/yard/brave-components/roots%2Facorn)
 
 Collection of logic-heavy components used in Brave projects.
 
