@@ -18,7 +18,7 @@
 	},
 	"require": {
 		"php": ">=8.2",
-		"roots/acorn": "^4.3",
+		"roots/acorn": "^4.3|^5.0",
 		"spatie/laravel-package-tools": "^1.16",
 		"yard/wp-hook-registrar": "*"
 	},
