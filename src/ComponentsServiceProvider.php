@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yard\Brave;
 
-use Brave\Components\Support\ReadSpeaker as ReadSpeakerHelper;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Brave\Components\Accordion;
@@ -20,6 +19,7 @@ use Yard\Brave\Components\ReadSpeakerPostTitle;
 use Yard\Brave\Components\SocialIcon;
 use Yard\Brave\Components\Tolkie;
 use Yard\Brave\Components\Tooltip;
+use Yard\Brave\Support\ReadSpeaker as ReadSpeakerHelper;
 use Yard\Hook\Registrar;
 
 class ComponentsServiceProvider extends PackageServiceProvider

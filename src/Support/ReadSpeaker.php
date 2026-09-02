@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Brave\Components\Support;
+namespace Yard\Brave\Support;
 
 use Yard\Brave\Hooks\ReadSpeaker as ReadSpeakerHook;
 

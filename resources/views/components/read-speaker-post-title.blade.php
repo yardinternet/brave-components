@@ -3,7 +3,7 @@
 	 * @var string $title
 	 */
 
-	use Brave\Components\Support\ReadSpeaker;
+	use Yard\Brave\Support\ReadSpeaker;
 @endphp
 
 @if (ReadSpeaker::isEnabled() && ReadSpeaker::showBefore())
