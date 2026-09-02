@@ -130,6 +130,18 @@ Set `h1_position` to `before` to render the button above the heading instead of 
 ],
 ```
 
+### Read Speaker Post Title
+
+Renders the post title as an `H1` with the ReadSpeaker button before or after it, following the same `h1_position` setting as the Read Speaker component. Use it in templates where the title is not rendered as a block, so the automatic H1 injection does not apply.
+
+Usage:
+
+```blade
+<x-brave-read-speaker-post-title />
+<x-brave-read-speaker-post-title class="page-title" />
+<x-brave-read-speaker-post-title title="An explicit title" />
+```
+
 ### Tolkie
 
 Enqueues the Tolkie script and adds the button placeholder. 
