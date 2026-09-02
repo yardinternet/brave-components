@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Yard\Brave;
 
+use Brave\Components\Support\ReadSpeaker as ReadSpeakerHelper;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Yard\Brave\Components\Accordion;
@@ -55,7 +56,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			$hooks[] = Hooks\PatternContent::class;
 		}
 
-		if (0 !== (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0))) {
+		if (ReadSpeakerHelper::isEnabled()) {
 			$hooks[] = Hooks\ReadSpeaker::class;
 		}
 

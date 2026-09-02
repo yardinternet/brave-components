@@ -22,21 +22,6 @@ class ReadSpeakerPostTitle extends Component
 		return view('brave::components.read-speaker-post-title');
 	}
 
-	public function showReadSpeaker(): bool
-	{
-		return 0 !== (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0));
-	}
-
-	public function showReadSpeakerBefore(): bool
-	{
-		return ReadSpeakerHook::POSITION_BEFORE === config('components.read_speaker.h1_position');
-	}
-
-	public function showReadSpeakerAfter(): bool
-	{
-		return ! $this->showReadSpeakerBefore();
-	}
-
 	private function resolveTitle(string $title): string
 	{
 		if (blank($title)) {

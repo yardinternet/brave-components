@@ -1,16 +1,15 @@
 @php
 	/**
-	 * @var callable $showReadSpeaker
-	 * @var callable $showReadSpeakerAfter
-	 * @var callable $showReadSpeakerBefore
 	 * @var string $title
 	 */
+
+	use Brave\Components\Support\ReadSpeaker;
 @endphp
 
-@if ($showReadSpeaker() && $showReadSpeakerBefore())
-	<x-brave-read-speaker />
+@if (ReadSpeaker::isEnabled() && ReadSpeaker::showBefore())
+	<x-brave-read-speaker/>
 @endif
 <h1 {{ $attributes->merge(['class' => 'brave-read-speaker-post-title']) }}>{!! $title !!}</h1>
-@if ($showReadSpeaker() && $showReadSpeakerAfter())
-	<x-brave-read-speaker />
+@if (ReadSpeaker::isEnabled() && ReadSpeaker::showAfter())
+	<x-brave-read-speaker/>
 @endif
