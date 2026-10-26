@@ -15,9 +15,11 @@ use Yard\Brave\Components\ImgFocalPoint;
 use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
+use Yard\Brave\Components\ReadSpeakerPostTitle;
 use Yard\Brave\Components\SocialIcon;
 use Yard\Brave\Components\Tolkie;
 use Yard\Brave\Components\Tooltip;
+use Yard\Brave\Support\ReadSpeaker as ReadSpeakerHelper;
 use Yard\Hook\Registrar;
 
 class ComponentsServiceProvider extends PackageServiceProvider
@@ -39,6 +41,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 				Nav::class,
 				PatternContent::class,
 				ReadSpeaker::class,
+				ReadSpeakerPostTitle::class,
 				SocialIcon::class,
 				Tooltip::class,
 				Tolkie::class
@@ -53,7 +56,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 			$hooks[] = Hooks\PatternContent::class;
 		}
 
-		if (0 !== (int) (config('components.read_speaker.customer_id') ?? config('components.readSpeaker.customerId', 0))) {
+		if (ReadSpeakerHelper::isEnabled()) {
 			$hooks[] = Hooks\ReadSpeaker::class;
 		}
 
