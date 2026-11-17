@@ -269,6 +269,19 @@ Usage:
 </x-brave::tooltip>
 ```
 
+### Inline Script
+
+Prints an inline script through `wp_print_inline_script_tag()`, so WordPress's script filters apply to it, a CSP nonce among them. An attribute passed as `null` is left out.
+
+Usage:
+
+```blade
+<x-brave-inline-script id="gtm-datalayer">
+	window.dataLayer = window.dataLayer || [];
+	window.dataLayer.push({ event: 'page_view' });
+</x-brave-inline-script>
+```
+
 ## About us
 
 [![banner](https://raw.githubusercontent.com/yardinternet/.github/refs/heads/main/profile/assets/small-banner-github.svg)](https://www.yard.nl/werken-bij/)

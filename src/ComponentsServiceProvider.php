@@ -12,6 +12,7 @@ use Yard\Brave\Components\Breadcrumb;
 use Yard\Brave\Components\Dialog;
 use Yard\Brave\Components\FeedbackForm;
 use Yard\Brave\Components\ImgFocalPoint;
+use Yard\Brave\Components\InlineScript;
 use Yard\Brave\Components\Nav;
 use Yard\Brave\Components\PatternContent;
 use Yard\Brave\Components\ReadSpeaker;
@@ -36,6 +37,7 @@ class ComponentsServiceProvider extends PackageServiceProvider
 				Dialog::class,
 				FeedbackForm::class,
 				ImgFocalPoint::class,
+				InlineScript::class,
 				Nav::class,
 				PatternContent::class,
 				ReadSpeaker::class,
